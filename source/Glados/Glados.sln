@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glados.Core", "Glados.Core\Glados.Core.csproj", "{0D48E2FE-CD6B-4133-BB38-52855E80F81C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glados.Droid", "Glados.Droid\Glados.Droid.csproj", "{12EF54F1-FC29-4ACD-A724-48BC85CA29CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D48E2FE-CD6B-4133-BB38-52855E80F81C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D48E2FE-CD6B-4133-BB38-52855E80F81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D48E2FE-CD6B-4133-BB38-52855E80F81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D48E2FE-CD6B-4133-BB38-52855E80F81C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12EF54F1-FC29-4ACD-A724-48BC85CA29CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12EF54F1-FC29-4ACD-A724-48BC85CA29CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12EF54F1-FC29-4ACD-A724-48BC85CA29CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12EF54F1-FC29-4ACD-A724-48BC85CA29CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
