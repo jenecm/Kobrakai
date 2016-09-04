@@ -3,6 +3,7 @@ using Android.OS;
 using System.Collections.Generic;
 using MvvmCross.Droid.Views;
 using Android.Widget;
+using Android.Content;
 
 namespace Glados.Droid.Views
 {
@@ -45,6 +46,11 @@ namespace Glados.Droid.Views
 
 			actv.Adapter = adapterTwo;
 
+			Button profileButton = FindViewById<Button>(Resource.Id.log);
+			profileButton.Click += delegate
+			{
+				StartActivity(typeof(Log));
+			};
         }
     }
 }

@@ -11,5 +11,8 @@
         android:text="@string/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/aToolBar" />
+        android:id="@+id/aToolBar"
+        android:layout_margin="20dip"
+        android:textSize="20dip"
+        android:textColor="@color/text_color" />
 </Toolbar>

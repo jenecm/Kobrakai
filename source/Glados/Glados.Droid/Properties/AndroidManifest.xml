@@ -13,4 +13,7 @@
 			android:label="@string/app_name" 
 			android:theme="@style/MyCustomTheme">
 	</application>
+	<activity android:label="@string/app_name" android:name="FistView"/>
+	<activity android:label="@string/app_name" android:name="Log"/>
+	<activity android:label="@string/app_name" android:name="Profile"/>
 </manifest>

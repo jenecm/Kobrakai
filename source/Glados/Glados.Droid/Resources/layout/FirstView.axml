@@ -50,7 +50,8 @@
             android:layout_height="0dip"
             android:layout_weight="1"
             android:gravity="center|bottom"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="20dip">
             <TextView
                 android:text="@string/location"
                 android:layout_width="match_parent"
