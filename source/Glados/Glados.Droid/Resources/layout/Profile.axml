@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:background="#E5E5E5">
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:id="@+id/linearLayout2"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent"
+        p1:background="#22A0FF">
+        <GridLayout
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="match_parent"
+            p1:layout_height="100dp"
+            p1:id="@+id/gridLayout1"
+            p1:columnCount="2"
+            p1:layout_gravity="center">
+            <Button
+                p1:text="Back"
+                p1:id="@+id/button1"
+                p1:layout_row="0"
+                p1:layout_column="0"
+                p1:layout_gravity="left"
+                p1:gravity="center"
+                p1:layout_marginLeft="150px"
+                p1:layout_columnWeight="1"
+                p1:layout_marginTop="50px" />
+            <TextView
+                p1:layout_row="0"
+                p1:text="PROFILE"
+                p1:layout_column="1"
+                p1:textAppearance="?android:attr/textAppearanceLarge"
+                p1:id="@+id/textView1"
+                p1:layout_gravity="center"
+                p1:gravity="center"
+                p1:layout_width="wrap_content"
+                p1:layout_columnWeight="1"
+                p1:textSize="150px"
+                p1:typeface="normal"
+                p1:layout_marginRight="400px" />
+        </GridLayout>
+    </LinearLayout>
+    <GridLayout
+        p1:layout_width="match_parent"
+        p1:layout_height="300dp"
+        p1:id="@+id/gridLayout2"
+        p1:columnCount="2">
+        <ImageButton
+            p1:src="@android:drawable/ic_menu_gallery"
+            p1:id="@+id/imageButton1"
+            p1:minHeight="1000px"
+            p1:minWidth="500px"
+            p1:layout_marginTop="100px"
+            p1:layout_marginLeft="100px" />
+        <GridLayout
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:id="@+id/relativeLayout1"
+            p1:layout_gravity="right"
+            p1:layout_height="match_parent"
+            p1:layout_width="1000px"
+            p1:layout_marginBottom="0.0dp"
+            p1:columnCount="1"
+            p1:rowCount="3"
+            p1:layout_marginLeft="100px">
+            <TextView
+                p1:text="Jen-Eric Name"
+                p1:minWidth="25px"
+                p1:minHeight="25px"
+                p1:layout_row="0"
+                p1:layout_column="0"
+                p1:id="@+id/nameText"
+                p1:textColor="@android:color/background_dark"
+                p1:layout_width="1000px"
+                p1:layout_height="100px"
+                p1:layout_marginTop="100px"
+                p1:textSize="64px" />
+            <TextView
+                p1:text="Job Title"
+                p1:minWidth="25px"
+                p1:minHeight="25px"
+                p1:layout_row="1"
+                p1:layout_column="0"
+                p1:id="@+id/JobTitle"
+                p1:textColor="@android:color/background_dark"
+                p1:layout_width="1000px"
+                p1:layout_height="100px"
+                p1:layout_marginTop="100px"
+                p1:textSize="64px" />
+            <TextView
+                p1:text="Assistant Co-Manager of Assets"
+                p1:minWidth="25px"
+                p1:layout_row="2"
+                p1:layout_column="0"
+                p1:id="@+id/JobTitleTitle"
+                p1:textColor="@android:color/background_dark"
+                p1:layout_width="1000px"
+                p1:layout_height="100px"
+                p1:layout_marginTop="100px"
+                p1:textSize="50px" />
+        </GridLayout>
+    </GridLayout>
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="300px"
+        p1:id="@+id/linearLayout3">
+        <TextView
+            p1:text="Current Location: N/A"
+            p1:minWidth="25px"
+            p1:layout_row="2"
+            p1:layout_column="0"
+            p1:id="@+id/LocationLabel"
+            p1:textColor="@android:color/background_dark"
+            p1:layout_width="1000px"
+            p1:layout_height="100px"
+            p1:layout_marginTop="100px"
+            p1:textSize="80px"
+            p1:layout_gravity="center"
+            p1:gravity="center" />
+    </LinearLayout>
+    <Button
+        p1:text="Request Location"
+        p1:layout_width="500px"
+        p1:layout_height="200px"
+        p1:id="@+id/button3"
+        p1:layout_gravity="center"
+        p1:background="#22A0FF" />
+    <TextView
+        p1:layout_width="1000px"
+        p1:layout_height="100px"
+        p1:layout_row="0"
+        p1:text="Bio"
+        p1:textAppearance="?android:attr/textAppearanceLarge"
+        p1:id="@+id/BioTitleLabel"
+        p1:layout_gravity="center"
+        p1:gravity="center"
+        p1:layout_columnWeight="1"
+        p1:textSize="100px"
+        p1:typeface="normal"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_marginTop="100px" />
+    <TextView
+        p1:layout_width="1200px"
+        p1:layout_height="300px"
+        p1:text="Jen likes cliche's and long walks around the office space. Some days you can catch her surrounding the water cooler or evading the bosses."
+        p1:id="@+id/BioLabel"
+        p1:layout_gravity="center"
+        p1:gravity="left"
+        p1:textSize="50px"
+        p1:typeface="normal"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_marginTop="100px" />
+</LinearLayout>

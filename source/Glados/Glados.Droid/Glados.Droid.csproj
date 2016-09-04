@@ -109,6 +109,8 @@
     <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\layout\toolbar.axml" />
+    <AndroidResource Include="Resources\layout\Profile.axml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

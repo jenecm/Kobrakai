@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Don't click me</string>
+	<string name="location">Your location is set to:</string>
+	<string name="checkin_button">Check In</string>
+	<string name="log_button">Log</string>
+	<string name="map_button">Map</string>
 	<string name="app_name">Glados strings</string>
+	<string name="your_room">not set</string>
+	<string name="toolbar">Alice</string>
 </resources>

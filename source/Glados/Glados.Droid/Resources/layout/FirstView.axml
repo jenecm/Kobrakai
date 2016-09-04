@@ -1,53 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <EditText
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        local:MvxBind="Text Hello" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        local:MvxBind="Text Hello" />
-    <SearchView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchView1" />
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2" />
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button3" />
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView1" />
-    <ImageButton
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton1" />
-    <Mvx.MvxListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        local:MvxItemTemplate="@layout/notificationslayout" />
-</LinearLayout>
+        android:layout_height="fill_parent"
+        android:layout_below="@id/toolbar">
+        <SearchView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchView1" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/linearLayout1">
+            <Button
+                android:text="@string/checkin_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkin" />
+            <Button
+                android:text="@string/log_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/log" />
+            <Button
+                android:text="@string/map_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/map" />
+        </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/notifications" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/myLocation" />
+            <AutoCompleteTextView
+                android:hint="@string/your_room"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/room" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
