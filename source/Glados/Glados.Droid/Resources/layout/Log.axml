@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Author: Ashleigh Smith n8602247-->
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:background="#EBEBEB">
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/linearLayout2"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent"
+        p1:background="#19557D">
+        <GridLayout
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="match_parent"
+            p1:layout_height="100dp"
+            p1:id="@+id/gridLayout1"
+            p1:columnCount="2"
+            p1:layout_gravity="center"
+            p1:layout_marginTop="25dp">
+            <Button
+                p1:text="Back"
+                p1:id="@+id/button1"
+                p1:layout_row="0"
+                p1:layout_column="0"
+                p1:layout_gravity="left"
+                p1:gravity="center"
+                p1:layout_marginLeft="150px"
+                p1:layout_columnWeight="1"
+                p1:layout_marginTop="50px" />
+            <TextView
+                p1:layout_row="0"
+                p1:text="LOG"
+                p1:layout_column="1"
+                p1:textAppearance="?android:attr/textAppearanceLarge"
+                p1:id="@+id/textView1"
+                p1:layout_gravity="center"
+                p1:gravity="center"
+                p1:layout_width="wrap_content"
+                p1:layout_columnWeight="1"
+                p1:textSize="150px"
+                p1:typeface="normal"
+                p1:layout_marginRight="250dp" />
+        </GridLayout>
+    </LinearLayout>
+    <GridLayout
+        p1:layout_width="match_parent"
+        p1:layout_height="100dp"
+        p1:id="@+id/gridLayout2"
+        p1:columnCount="2"
+        p1:layout_gravity="center">
+        <ImageButton
+            p1:src="@android:drawable/ic_menu_gallery"
+            p1:id="@+id/imageButton1"
+            p1:minHeight="100px"
+            p1:minWidth="100px"
+            p1:layout_marginTop="10dp"
+            p1:layout_marginLeft="10px" />
+        <TextView
+            p1:text="Jen-Eric Name"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_row="0"
+            p1:layout_column="1"
+            p1:id="@+id/nameText"
+            p1:textColor="@android:color/background_dark"
+            p1:layout_width="1000px"
+            p1:layout_height="100px"
+            p1:layout_marginTop="10px"
+            p1:layout_marginLeft="500px"
+            p1:layout_gravity="center"
+            p1:textSize="64px" />
+    </GridLayout>
+    <TextView
+        p1:text="These people wanted to know where you are:"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/txtSubtitle"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_width="1000px"
+        p1:layout_height="200px"
+        p1:layout_marginTop="10px"
+        p1:layout_gravity="center"
+        p1:layout_marginLeft="100px"
+        p1:textSize="64px" />
+    <TextView
+        p1:text="Person1"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/txtSubtitle"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_width="1000px"
+        p1:layout_height="100px"
+        p1:layout_gravity="center"
+        p1:layout_marginLeft="100px"
+        p1:textSize="64px" />
+    <TextView
+        p1:text="Person2"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/txtSubtitle"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_width="1000px"
+        p1:layout_height="100px"
+        p1:layout_gravity="center"
+        p1:layout_marginLeft="100px"
+        p1:textSize="64px" />
+    <TextView
+        p1:text="Person3"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/txtSubtitle"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_width="1000px"
+        p1:layout_height="100px"
+        p1:layout_gravity="center"
+        p1:layout_marginLeft="100px"
+        p1:textSize="64px" />
+    <TextView
+        p1:text="Person4"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/txtSubtitle"
+        p1:textColor="@android:color/background_dark"
+        p1:layout_width="1000px"
+        p1:layout_height="100px"
+        p1:layout_gravity="center"
+        p1:layout_marginLeft="100px"
+        p1:textSize="64px" />
+    <GridLayout
+        p1:layout_width="match_parent"
+        p1:layout_height="100dp"
+        p1:id="@+id/gridLayout2"
+        p1:columnCount="3"
+        p1:layout_gravity="center"
+        p1:layout_marginTop="480.0dp">
+        <Button
+            p1:text="Busy"
+            p1:id="@+id/button2"
+            p1:layout_marginLeft="250.0dp" />
+        <Button
+            p1:text="Send"
+            p1:id="@+id/button4"
+            p1:layout_marginLeft="25.0dp"
+            p1:layout_marginRight="25dp" />
+        <Button
+            p1:text="Ignore"
+            p1:id="@+id/button3" />
+    </GridLayout>
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/linearLayout2"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent"
+        p1:background="#19557D">
+        <GridLayout
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="match_parent"
+            p1:layout_height="50dp"
+            p1:id="@+id/gridLayout1"
+            p1:columnCount="2"
+            p1:layout_gravity="bottom"
+            p1:layout_marginTop="25dp">
+            <TextView
+                p1:layout_row="0"
+                p1:text="Location:"
+                p1:layout_column="0"
+                p1:textAppearance="?android:attr/textAppearanceLarge"
+                p1:id="@+id/textView1"
+                p1:layout_gravity="center"
+                p1:gravity="center"
+                p1:layout_width="wrap_content"
+                p1:layout_columnWeight="1"
+                p1:textSize="40dp"
+                p1:typeface="normal"
+                p1:layout_marginBottom="5dp" />
+            <TextView
+                p1:layout_row="0"
+                p1:text="S401"
+                p1:layout_column="1"
+                p1:textAppearance="?android:attr/textAppearanceLarge"
+                p1:id="@+id/textView1"
+                p1:layout_gravity="center"
+                p1:gravity="center"
+                p1:layout_width="wrap_content"
+                p1:layout_columnWeight="1"
+                p1:textSize="40dp"
+                p1:typeface="normal"
+                p1:layout_marginBottom="5dp" />
+        </GridLayout>
+    </LinearLayout>
+</LinearLayout>
