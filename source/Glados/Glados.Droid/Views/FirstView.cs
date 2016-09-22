@@ -51,6 +51,11 @@ namespace Glados.Droid.Views
 			{
 				StartActivity(typeof(Log));
 			};
+			Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
+			checkinButton.Click += delegate
+			{
+				StartActivity(typeof(Profile));
+			};
         }
     }
 }
