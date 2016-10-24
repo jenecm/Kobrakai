@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MvvmCross.Droid.Views;
 using Android.Widget;
 using Android.Content;
+using Android.Views;
 
 namespace Glados.Droid.Views
 {
@@ -20,42 +21,50 @@ namespace Glados.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.FirstView);
 
-			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
 
-			//Toolbar will now take on default actionbar characteristics
-			SetActionBar(toolbar);
+            TextView headertext = (TextView)headerbar.GetChildAt(1);
 
-			listView = FindViewById<ListView>(Resource.Id.notifications);
-			actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
+            headertext.Text = "Home";
 
-			items = new List<string>();
-			items.Add("Dan requested your location");
-			items.Add("Jan is at D101");
-			items.Add("Bob is not available");
+            Button backButton = (Button) headerbar.GetChildAt(0);
+            backButton.Visibility = ViewStates.Invisible;
 
-			rooms = new List<string>();
-			rooms.Add("F101");
-			rooms.Add("F102");
-			rooms.Add("F103");
+            var toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
 
-			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+            
 
-			listView.Adapter = adapter;
+            //listView = FindViewById<ListView>(Resource.Id.notifications);
+            //actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
 
-			ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, rooms);
+            //items = new List<string>();
+            //items.Add("Dan requested your location");
+            //items.Add("Jan is at D101");
+            //items.Add("Bob is not available");
 
-			actv.Adapter = adapterTwo;
+            //rooms = new List<string>();
+            //rooms.Add("F101");
+            //rooms.Add("F102");
+            //rooms.Add("F103");
 
-			Button profileButton = FindViewById<Button>(Resource.Id.log);
-			profileButton.Click += delegate
-			{
-				StartActivity(typeof(Log));
-			};
-			Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
-			checkinButton.Click += delegate
-			{
-				StartActivity(typeof(Profile));
-			};
+            //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+
+            //listView.Adapter = adapter;
+
+            //ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, rooms);
+
+            //actv.Adapter = adapterTwo;
+
+            Button profileButton = FindViewById<Button>(Resource.Id.log);
+            profileButton.Click += delegate
+            {
+                StartActivity(typeof(Log));
+            };
+            Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
+            checkinButton.Click += delegate
+            {
+                StartActivity(typeof(Profile));
+            };
         }
     }
 }

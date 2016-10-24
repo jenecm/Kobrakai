@@ -21,7 +21,13 @@ namespace Glados.Droid.Views
 			base.OnCreate(bundle);
 			SetContentView(Resource.Layout.Log);
 
-			Button backButton = FindViewById<Button>(Resource.Id.button1);
+            var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
+
+            TextView headertext = (TextView)headerbar.GetChildAt(1);
+
+            headertext.Text = "Log";
+
+            Button backButton = (Button)headerbar.GetChildAt(0);
 			backButton.Click += delegate
 			{
 				StartActivity(typeof(FirstView));

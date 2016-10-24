@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/actionBarSize"
+    android:layout_marginTop="110dp">
+  <!--android:minHeight="?android:attr/actionBarSize"
     android:background="?android:attr/colorPrimary"
     android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-    android:popupTheme="@android:style/ThemeOverlay.Material.Light">
-    <TextView
+    android:popupTheme="@android:style/ThemeOverlay.Material.Light"-->
+  <Button android:id="@+id/btnHamburger"
+          android:background="@drawable/ham"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+  <TextView
         android:text="@string/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/aToolBar"
-        android:layout_margin="20dip"
-        android:textSize="20dip"
-        android:textColor="@color/text_color" />
-</Toolbar>
+        android:layout_margin="20dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#1a1a1a" />
+</LinearLayout>

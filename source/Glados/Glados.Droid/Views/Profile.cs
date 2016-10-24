@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Glados.Droid.Views;
 
 namespace Glados.Droid
 {
@@ -20,8 +21,19 @@ namespace Glados.Droid
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Profile);
-			// Create your application here
-		}
+            // Create your application here
+            var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
+
+            TextView headertext = (TextView)headerbar.GetChildAt(1);
+
+            headertext.Text = "Profile";
+
+            Button backButton = (Button)headerbar.GetChildAt(0);
+            backButton.Click += delegate
+            {
+                StartActivity(typeof(FirstView));
+            };
+        }
 	}
 }
 
