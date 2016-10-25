@@ -1,87 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Author: Ashleigh Smith n8602247-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:grid="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:minWidth="25px"
-    android:minHeight="25px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/linearLayout1"
     android:background="#EBEBEB">
-    <!--<LinearLayout
-        p1:orientation="vertical"
-        p1:minWidth="25px"
-        p1:minHeight="25px"
-        p1:id="@+id/linearLayout2"
-        p1:layout_height="wrap_content"
-        p1:layout_width="match_parent"
-        p1:background="#19557D">
-        <GridLayout
-            p1:minWidth="25px"
-            p1:minHeight="25px"
-            p1:layout_width="match_parent"
-            p1:layout_height="100dp"
-            p1:id="@+id/gridLayout1"
-            p1:columnCount="2"
-            p1:layout_gravity="center"
-            p1:layout_marginTop="25dp">
-            <Button
-                p1:text="Back"
-                p1:id="@+id/button1"
-                p1:layout_row="0"
-                p1:layout_column="0"
-                p1:layout_gravity="left"
-                p1:gravity="center"
-                p1:layout_marginLeft="150px"
-                p1:layout_columnWeight="1"
-                p1:layout_marginTop="50px" />
-            <TextView
-                p1:layout_row="0"
-                p1:text="LOG"
-                p1:layout_column="1"
-                p1:textAppearance="?android:attr/textAppearanceLarge"
-                p1:id="@+id/textView1"
-                p1:layout_gravity="center"
-                p1:gravity="center"
-                p1:layout_width="wrap_content"
-                p1:layout_columnWeight="1"
-                p1:textSize="150px"
-                p1:typeface="normal"
-                p1:layout_marginRight="250dp" />
-        </GridLayout>
-    </LinearLayout>-->
-<include
+    <include
         android:id="@+id/headerbar"
         layout="@layout/headerbar" />
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/gridLayout2"
-        android:columnCount="2"
-        android:layout_gravity="center">
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:id="@+id/imageButton1"
-            android:minHeight="100px"
-            android:minWidth="100px"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10px" />
-        <TextView
-            android:text="Jen-Eric Name"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:id="@+id/nameText"
-            android:textColor="@android:color/background_dark"
-            android:layout_width="1000px"
-            android:layout_height="100px"
-            android:layout_marginTop="10px"
-            android:layout_marginLeft="500px"
-            android:layout_gravity="center"
-            android:textSize="64px" />
-    </GridLayout>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
     <TextView
         android:text="These people wanted to know where you are:"
         android:minWidth="25px"

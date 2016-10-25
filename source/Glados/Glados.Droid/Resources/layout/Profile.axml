@@ -8,49 +8,13 @@
     android:layout_height="match_parent"
     android:id="@+id/linearLayout1"
     android:background="#E5E5E5">
-  <!--<LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/linearLayout2"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:background="#22A0FF">
-        <GridLayout
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/gridLayout1"
-            android:columnCount="2"
-            android:layout_gravity="center">
-            <Button
-                android:text="Back"
-                android:id="@+id/button1"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_gravity="left"
-                android:gravity="center"
-                android:layout_marginLeft="150px"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="50px" />
-            <TextView
-                android:layout_row="0"
-                android:text="PROFILE"
-                android:layout_column="1"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textView1"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:textSize="150px"
-                android:typeface="normal"
-                android:layout_marginRight="400px" />
-        </GridLayout>
-    </LinearLayout>-->
 
   <include
-        android:id="@+id/headerbar"
-        layout="@layout/headerbar" />
+    android:id="@+id/headerbar"
+    layout="@layout/headerbar" />
+  <include
+    android:id="@+id/toolbar"
+    layout="@layout/toolbar" />
 
   <GridLayout
       android:layout_width="match_parent"

@@ -1519,8 +1519,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c007d
 			public const int aToolBar = 2131492989;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int action0 = 2131492968;
+			// aapt resource value: 0x7f0c0066
+			public const int action0 = 2131492966;
 			
 			// aapt resource value: 0x7f0c0043
 			public const int action_bar = 2131492931;
@@ -1546,8 +1546,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0044
 			public const int action_context_bar = 2131492932;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int action_divider = 2131492972;
+			// aapt resource value: 0x7f0c006a
+			public const int action_divider = 2131492970;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -1582,20 +1582,20 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c005c
 			public const int button1 = 2131492956;
 			
+			// aapt resource value: 0x7f0c0060
+			public const int button2 = 2131492960;
+			
 			// aapt resource value: 0x7f0c0062
-			public const int button2 = 2131492962;
+			public const int button3 = 2131492962;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int button3 = 2131492964;
-			
-			// aapt resource value: 0x7f0c0063
-			public const int button4 = 2131492963;
+			// aapt resource value: 0x7f0c0061
+			public const int button4 = 2131492961;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int buttonPanel = 2131492909;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int cancel_action = 2131492969;
+			// aapt resource value: 0x7f0c0067
+			public const int cancel_action = 2131492967;
 			
 			// aapt resource value: 0x7f0c003b
 			public const int checkbox = 2131492923;
@@ -1603,8 +1603,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0056
 			public const int checkin = 2131492950;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int chronometer = 2131492975;
+			// aapt resource value: 0x7f0c006d
+			public const int chronometer = 2131492973;
 			
 			// aapt resource value: 0x7f0c001e
 			public const int collapseActionView = 2131492894;
@@ -1633,8 +1633,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c001b
 			public const int end = 2131492891;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int end_padder = 2131492980;
+			// aapt resource value: 0x7f0c0072
+			public const int end_padder = 2131492978;
 			
 			// aapt resource value: 0x7f0c0027
 			public const int expand_activities_button = 2131492903;
@@ -1642,11 +1642,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c003a
 			public const int expanded_menu = 2131492922;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int gridLayout1 = 2131492966;
+			// aapt resource value: 0x7f0c0064
+			public const int gridLayout1 = 2131492964;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int gridLayout2 = 2131492958;
+			// aapt resource value: 0x7f0c005f
+			public const int gridLayout2 = 2131492959;
 			
 			// aapt resource value: 0x7f0c0052
 			public const int headerbar = 2131492946;
@@ -1669,23 +1669,23 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0028
 			public const int image = 2131492904;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int imageButton1 = 2131492959;
-			
 			// aapt resource value: 0x7f0c0073
-			public const int info = 2131492979;
-			
-			// aapt resource value: 0x7f0c006d
-			public const int line1 = 2131492973;
+			public const int imageButton1 = 2131492979;
 			
 			// aapt resource value: 0x7f0c0071
-			public const int line3 = 2131492977;
+			public const int info = 2131492977;
+			
+			// aapt resource value: 0x7f0c006b
+			public const int line1 = 2131492971;
+			
+			// aapt resource value: 0x7f0c006f
+			public const int line3 = 2131492975;
 			
 			// aapt resource value: 0x7f0c0055
 			public const int linearLayout1 = 2131492949;
 			
-			// aapt resource value: 0x7f0c0065
-			public const int linearLayout2 = 2131492965;
+			// aapt resource value: 0x7f0c0063
+			public const int linearLayout2 = 2131492963;
 			
 			// aapt resource value: 0x7f0c0078
 			public const int linearLayout3 = 2131492984;
@@ -1702,8 +1702,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0058
 			public const int map = 2131492952;
 			
-			// aapt resource value: 0x7f0c006b
-			public const int media_actions = 2131492971;
+			// aapt resource value: 0x7f0c0069
+			public const int media_actions = 2131492969;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int middle = 2131492892;
@@ -1714,8 +1714,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c005a
 			public const int myLocation = 2131492954;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int nameText = 2131492960;
+			// aapt resource value: 0x7f0c0075
+			public const int nameText = 2131492981;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int never = 2131492896;
@@ -1741,8 +1741,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int radio = 2131492925;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int relativeLayout1 = 2131492981;
+			// aapt resource value: 0x7f0c0074
+			public const int relativeLayout1 = 2131492980;
 			
 			// aapt resource value: 0x7f0c005b
 			public const int room = 2131492955;
@@ -1822,8 +1822,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0019
 			public const int src_over = 2131492889;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int status_bar_latest_event_content = 2131492970;
+			// aapt resource value: 0x7f0c0068
+			public const int status_bar_latest_event_content = 2131492968;
 			
 			// aapt resource value: 0x7f0c004e
 			public const int submit_area = 2131492942;
@@ -1831,20 +1831,20 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c000d
 			public const int tabMode = 2131492877;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int text = 2131492978;
-			
 			// aapt resource value: 0x7f0c0070
-			public const int text2 = 2131492976;
+			public const int text = 2131492976;
+			
+			// aapt resource value: 0x7f0c006e
+			public const int text2 = 2131492974;
 			
 			// aapt resource value: 0x7f0c0036
 			public const int textSpacerNoButtons = 2131492918;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int textView1 = 2131492967;
+			// aapt resource value: 0x7f0c0065
+			public const int textView1 = 2131492965;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int time = 2131492974;
+			// aapt resource value: 0x7f0c006c
+			public const int time = 2131492972;
 			
 			// aapt resource value: 0x7f0c002c
 			public const int title = 2131492908;
@@ -1858,8 +1858,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0030
 			public const int topPanel = 2131492912;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int txtSubtitle = 2131492961;
+			// aapt resource value: 0x7f0c005e
+			public const int txtSubtitle = 2131492958;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int up = 2131492872;
@@ -2146,9 +2146,6 @@ namespace Glados.Droid
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;
-			
-			// aapt resource value: 0x7f06001a
-			public const int toolbar = 2131099674;
 			
 			// aapt resource value: 0x7f060019
 			public const int your_room = 2131099673;

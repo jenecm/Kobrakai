@@ -32,7 +32,14 @@ namespace Glados.Droid.Views
 			{
 				StartActivity(typeof(FirstView));
 			};
-		}
+
+            var toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
+
+            
+
+            var toolText = (TextView)toolbar.GetChildAt(1);
+            toolText.Text = "Alice";
+        }
 	}
 }
 

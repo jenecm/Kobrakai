@@ -8,7 +8,7 @@ using Android.Views;
 
 namespace Glados.Droid.Views
 {
-    [Activity(Label = "@string/toolbar", Icon = "@mipmap/icon")]
+    [Activity(Label = "Home", Icon = "@mipmap/icon")]
     public class FirstView : MvxActivity
     {
 		private List<string> items;
@@ -32,7 +32,16 @@ namespace Glados.Droid.Views
 
             var toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
 
+            var toolText = (TextView)toolbar.GetChildAt(1);
+            toolText.Text = "Alice";
+
+            RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(toolbar.LayoutParameters);
             
+            p.TopMargin = 300;
+
+            toolbar.LayoutParameters = p;
+
+
 
             //listView = FindViewById<ListView>(Resource.Id.notifications);
             //actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
