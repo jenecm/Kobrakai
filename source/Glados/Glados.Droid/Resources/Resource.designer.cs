@@ -1495,20 +1495,20 @@ namespace Glados.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c007f
-			public const int BioLabel = 2131492991;
-			
 			// aapt resource value: 0x7f0c007e
-			public const int BioTitleLabel = 2131492990;
-			
-			// aapt resource value: 0x7f0c007a
-			public const int JobTitle = 2131492986;
-			
-			// aapt resource value: 0x7f0c007b
-			public const int JobTitleTitle = 2131492987;
+			public const int BioLabel = 2131492990;
 			
 			// aapt resource value: 0x7f0c007d
-			public const int LocationLabel = 2131492989;
+			public const int BioTitleLabel = 2131492989;
+			
+			// aapt resource value: 0x7f0c0079
+			public const int JobTitle = 2131492985;
+			
+			// aapt resource value: 0x7f0c007a
+			public const int JobTitleTitle = 2131492986;
+			
+			// aapt resource value: 0x7f0c007c
+			public const int LocationLabel = 2131492988;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int MvvmCrossTagId = 2131492873;
@@ -1516,8 +1516,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c000a
 			public const int MvxBindingTagUnique = 2131492874;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int aToolBar = 2131492993;
+			// aapt resource value: 0x7f0c0080
+			public const int aToolBar = 2131492992;
 			
 			// aapt resource value: 0x7f0c006a
 			public const int action0 = 2131492970;
@@ -1576,8 +1576,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c001a
 			public const int beginning = 2131492890;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int btnHamburger = 2131492992;
+			// aapt resource value: 0x7f0c007f
+			public const int btnHamburger = 2131492991;
 			
 			// aapt resource value: 0x7f0c005e
 			public const int button1 = 2131492958;
@@ -1670,7 +1670,7 @@ namespace Glados.Droid
 			public const int image = 2131492904;
 			
 			// aapt resource value: 0x7f0c0077
-			public const int imageButton1 = 2131492983;
+			public const int imgProfile = 2131492983;
 			
 			// aapt resource value: 0x7f0c0075
 			public const int info = 2131492981;
@@ -1690,8 +1690,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0065
 			public const int linearLayout2 = 2131492965;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int linearLayout3 = 2131492988;
+			// aapt resource value: 0x7f0c007b
+			public const int linearLayout3 = 2131492987;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int listMode = 2131492875;
@@ -1719,9 +1719,6 @@ namespace Glados.Droid
 			
 			// aapt resource value: 0x7f0c005a
 			public const int myLocation = 2131492954;
-			
-			// aapt resource value: 0x7f0c0079
-			public const int nameText = 2131492985;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int never = 2131492896;

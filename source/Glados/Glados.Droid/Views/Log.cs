@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
+using Glados.Core.Helpers;
 using MvvmCross.Droid.Views;
 
 namespace Glados.Droid.Views
@@ -92,7 +93,8 @@ namespace Glados.Droid.Views
             _toolbar.LayoutParameters = p;
 
             var toolText = (TextView)_toolbar.GetChildAt(1);
-            toolText.Text = "Alice";
+
+            toolText.Text = StorageHelper.GetValue("Name");
 
             _menuButton = (Button)_toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);

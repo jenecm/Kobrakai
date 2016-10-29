@@ -8,6 +8,8 @@ using Android.Content;
 using Android.Graphics;
 using Android.Views;
 using Android.Views.Animations;
+using Glados.Core.Helpers;
+using Java.Security;
 
 namespace Glados.Droid.Views
 {
@@ -35,6 +37,10 @@ namespace Glados.Droid.Views
             base.OnCreate(bundle);
             //Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.FirstView);
+
+            StorageHelper.StoreValue("Name", "Ashleigh");
+            StorageHelper.StoreValue("Job", "University Student");
+            StorageHelper.StoreValue("Bio", "Is a person. Hates this subject.");
 
             FnInitialization();
             TapEvent();
@@ -119,7 +125,7 @@ namespace Glados.Droid.Views
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
 
             var toolText = (TextView) _toolbar.GetChildAt(1);
-            toolText.Text = "Alice";
+            toolText.Text = StorageHelper.GetValue("Name");
 
             _menuButton = (Button) _toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
@@ -172,6 +178,7 @@ namespace Glados.Droid.Views
             switch (strMenuText)
             {
                 case "Favourites":
+                    
                     break;
                 case "Profile":
                     StartActivity(typeof(Profile));
