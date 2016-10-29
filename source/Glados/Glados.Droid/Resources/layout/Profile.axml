@@ -12,6 +12,16 @@
   <include
     android:id="@+id/headerbar"
     layout="@layout/headerbar" />
+  <ListView
+      android:id="@+id/menuListView"
+      android:layout_below="@+id/titleBarLinearLayout"
+      android:background="#ff64bbf8"
+      android:divider="#CFEBFF"
+      android:dividerHeight="1dp"
+      android:layout_marginLeft="0dp"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:visibility="gone" />
   <include
     android:id="@+id/toolbar"
     layout="@layout/toolbar" />

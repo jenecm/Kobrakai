@@ -82,6 +82,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Views\GestureListener.cs" />
     <Compile Include="Views\Log.cs" />
     <Compile Include="Views\Profile.cs" />
   </ItemGroup>
@@ -94,6 +95,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\headerbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="ToDo-MvvmCross\_ Droid UI.txt" />

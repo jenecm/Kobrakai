@@ -3,7 +3,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:layout_marginTop="90dp">
   
   <Button android:id="@+id/btnHamburger"
     android:background="@drawable/ham"
