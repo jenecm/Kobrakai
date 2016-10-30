@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using Android.App;
 using Android.Content;
+using SQLite;
 
 namespace Glados.Core.Helpers
 {

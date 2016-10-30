@@ -28,7 +28,6 @@ namespace Glados.Droid
 
         private ListView _menuListView;
         private MenuListAdapterClass _objAdapterMenu;
-        //ImageView menuIconImageView;
         private int _intDisplayWidth;
         private bool _isSingleTapFired = false;
 
@@ -36,19 +35,17 @@ namespace Glados.Droid
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Profile);
-            // Create your application here
+
+            string username = Intent.GetStringExtra("User") ?? "Error";
 
             FnInitialization();
+            SetProfileText(username);
             TapEvent();
             FnBindMenu();
         }
 
         private void TapEvent()
         {
-            var toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
-
-
-            //title bar menu icon
             _menuButton.Click += delegate (object sender, EventArgs e)
             {
                 if (!_isSingleTapFired)
@@ -57,11 +54,6 @@ namespace Glados.Droid
                     _isSingleTapFired = false;
                 }
             };
-            //bottom expandable description window
-            //btnDescExpander.Click += delegate(object sender, EventArgs e)
-            //{
-            //    FnDescriptionWindowToggle();
-            //};
         }
 
         private void FnInitialization()
@@ -75,15 +67,11 @@ namespace Glados.Droid
 
             var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
 
-            TextView headertext = (TextView)headerbar.GetChildAt(1);
+            TextView headertext = (TextView)headerbar.GetChildAt(0);
 
             headertext.Text = "Profile";
 
-            Button backButton = (Button)headerbar.GetChildAt(0);
-            backButton.Click += delegate
-            {
-                StartActivity(typeof(FirstView));
-            };
+            
 
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
 
@@ -93,18 +81,8 @@ namespace Glados.Droid
 
             _toolbar.LayoutParameters = p;
 
-            var toolText = (TextView)_toolbar.GetChildAt(1);
-
-            toolText.Text = StorageHelper.GetValue("Name");
-
-            var jobTitle = FindViewById<TextView>(Resource.Id.JobTitleTitle);
-            jobTitle.Text = StorageHelper.GetValue("Job");
-
-            var bio = FindViewById<TextView>(Resource.Id.BioLabel);
-            bio.Text = StorageHelper.GetValue("Bio");
-
             _menuButton = (Button)_toolbar.GetChildAt(0);
-            _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
+            _menuListView = FindViewById<ListView>(Resource.Id.lvMenu);
 
             //changed sliding menu width to 3/4 of screen width 
             Display display = this.WindowManager.DefaultDisplay;
@@ -120,16 +98,48 @@ namespace Glados.Droid
             }
         }
 
+	    private void SetProfileText(string username)
+	    {
+            var toolText = (TextView)_toolbar.GetChildAt(1);
+            var jobTitle = FindViewById<TextView>(Resource.Id.txtJobTitle);
+            var bio = FindViewById<TextView>(Resource.Id.txtBio);
+	        if (username == "Self")
+	        {
+	            toolText.Text = StorageHelper.GetValue("Name");
+                jobTitle.Text = StorageHelper.GetValue("Job");
+                bio.Text = StorageHelper.GetValue("Bio");
+
+                FindViewById(Resource.Id.btnRequestLocation).Visibility = ViewStates.Gone;
+	        }
+            else if (username == "Error")
+            {
+                StartActivity(typeof(FirstView));
+            }
+	        else
+	        {
+                //Get Data from username
+	            toolText.Text = username;
+	            jobTitle.Text = username + " Job Title";
+	            bio.Text = username + " Bio";
+
+	            FindViewById(Resource.Id.lblLocation).Visibility = ViewStates.Gone;
+	            FindViewById(Resource.Id.txtLocation).Visibility = ViewStates.Gone;
+            }
+
+
+            
+        }
+
         private void FnBindMenu()
         {
             string[] strMnuText =
             {
-                "Favourites", "Profile",
+                "Home", "Favourites", "Profile",
                 "Settings", "Log"
             };
             int[] strMnuUrl =
             {
-                Resource.Drawable.icon, Resource.Drawable.icon,
+                Resource.Drawable.icon, Resource.Drawable.icon, Resource.Drawable.icon,
                 Resource.Drawable.icon, Resource.Drawable.icon
             };
             if (_objAdapterMenu != null)
@@ -144,15 +154,35 @@ namespace Glados.Droid
 
         private void FnMenuSelected(string strMenuText)
         {
-            //_txtActionBarText.Text = strMenuText;
-            //_txtPageName.Text = strMenuText;
-            //selected action goes here
+            Intent profile = new Intent();
             switch (strMenuText)
             {
+                case "Home":
+                    StartActivity(typeof(FirstView));
+                    break;
                 case "Favourites":
+                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
+                    menu.Inflate(Resource.Layout.favourites);
+
+                    List<string> favourites = new List<string> { "Person1", "Person2", "Person3", "Person4", "Person5" };
+
+                    foreach (var f in favourites)
+                    {
+                        menu.Menu.Add(f);
+                    }
+
+                    menu.MenuItemClick += (s1, arg1) => {
+                        profile = new Intent(this, typeof(Profile));
+                        profile.PutExtra("User", arg1.Item.TitleFormatted);
+                        StartActivity(profile);
+                    };
+                    menu.DismissEvent += (s2, arg2) => { };
+                    menu.Show();
                     break;
                 case "Profile":
-                    StartActivity(typeof(Profile));
+                    profile = new Intent(this, typeof(Profile));
+                    profile.PutExtra("User", "Self");
+                    StartActivity(profile);
                     break;
                 case "Settings":
                     break;
@@ -160,7 +190,6 @@ namespace Glados.Droid
                     StartActivity(typeof(Log));
                     break;
             }
-
         }
 
         private void GestureLeft()
@@ -221,7 +250,7 @@ namespace Glados.Droid
         private Activity _context;
         private string[] _mnuText;
         private int[] _mnuUrl;
-        //action event to pass selected menu item to main activity
+
         internal event Action<string> actionMenuSelected;
         public MenuListAdapterClass(Activity context, string[] strMnu, int[] intImage)
         {
@@ -275,7 +304,7 @@ namespace Glados.Droid
             return view;
         }
     }
-    //Viewholder class
+
     internal class MenuListViewHolderClass : Java.Lang.Object
     {
         internal Action viewClicked { get; set; }

@@ -54,11 +54,11 @@
             android:id="@+id/notifications" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dip"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center|bottom"
             android:orientation="vertical"
-            android:layout_margin="20dip">
+            android:layout_margin="20dp">
             <TextView
                 android:text="@string/location"
                 android:layout_width="match_parent"

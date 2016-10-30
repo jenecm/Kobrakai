@@ -1495,29 +1495,14 @@ namespace Glados.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c007e
-			public const int BioLabel = 2131492990;
-			
-			// aapt resource value: 0x7f0c007d
-			public const int BioTitleLabel = 2131492989;
-			
-			// aapt resource value: 0x7f0c0079
-			public const int JobTitle = 2131492985;
-			
-			// aapt resource value: 0x7f0c007a
-			public const int JobTitleTitle = 2131492986;
-			
-			// aapt resource value: 0x7f0c007c
-			public const int LocationLabel = 2131492988;
-			
 			// aapt resource value: 0x7f0c0009
 			public const int MvvmCrossTagId = 2131492873;
 			
 			// aapt resource value: 0x7f0c000a
 			public const int MvxBindingTagUnique = 2131492874;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int aToolBar = 2131492992;
+			// aapt resource value: 0x7f0c0085
+			public const int aToolBar = 2131492997;
 			
 			// aapt resource value: 0x7f0c006a
 			public const int action0 = 2131492970;
@@ -1576,11 +1561,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c001a
 			public const int beginning = 2131492890;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int btnHamburger = 2131492991;
+			// aapt resource value: 0x7f0c0084
+			public const int btnHamburger = 2131492996;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int button1 = 2131492958;
+			// aapt resource value: 0x7f0c0083
+			public const int btnRequestLocation = 2131492995;
 			
 			// aapt resource value: 0x7f0c0062
 			public const int button2 = 2131492962;
@@ -1642,6 +1627,15 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c003a
 			public const int expanded_menu = 2131492922;
 			
+			// aapt resource value: 0x7f0c007e
+			public const int glLocation = 2131492990;
+			
+			// aapt resource value: 0x7f0c007b
+			public const int glProfileDetails = 2131492987;
+			
+			// aapt resource value: 0x7f0c0079
+			public const int glProfileInfo = 2131492985;
+			
 			// aapt resource value: 0x7f0c0066
 			public const int gridLayout1 = 2131492966;
 			
@@ -1651,8 +1645,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0052
 			public const int headerbar = 2131492946;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int headertext = 2131492959;
+			// aapt resource value: 0x7f0c005e
+			public const int headertext = 2131492958;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int home = 2131492868;
@@ -1669,14 +1663,23 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0028
 			public const int image = 2131492904;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int imgProfile = 2131492983;
+			// aapt resource value: 0x7f0c007a
+			public const int imgProfile = 2131492986;
 			
 			// aapt resource value: 0x7f0c0075
 			public const int info = 2131492981;
 			
 			// aapt resource value: 0x7f0c0068
 			public const int ivMenuImg = 2131492968;
+			
+			// aapt resource value: 0x7f0c0081
+			public const int lblBio = 2131492993;
+			
+			// aapt resource value: 0x7f0c007c
+			public const int lblJobTitle = 2131492988;
+			
+			// aapt resource value: 0x7f0c007f
+			public const int lblLocation = 2131492991;
 			
 			// aapt resource value: 0x7f0c006f
 			public const int line1 = 2131492975;
@@ -1690,17 +1693,23 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0065
 			public const int linearLayout2 = 2131492965;
 			
-			// aapt resource value: 0x7f0c007b
-			public const int linearLayout3 = 2131492987;
-			
 			// aapt resource value: 0x7f0c000b
 			public const int listMode = 2131492875;
 			
 			// aapt resource value: 0x7f0c002a
 			public const int list_item = 2131492906;
 			
+			// aapt resource value: 0x7f0c0077
+			public const int llProfile = 2131492983;
+			
 			// aapt resource value: 0x7f0c0057
 			public const int log = 2131492951;
+			
+			// aapt resource value: 0x7f0c0060
+			public const int lvLogs = 2131492960;
+			
+			// aapt resource value: 0x7f0c0078
+			public const int lvMenu = 2131492984;
 			
 			// aapt resource value: 0x7f0c0058
 			public const int map = 2131492952;
@@ -1743,9 +1752,6 @@ namespace Glados.Droid
 			
 			// aapt resource value: 0x7f0c003d
 			public const int radio = 2131492925;
-			
-			// aapt resource value: 0x7f0c0078
-			public const int relativeLayout1 = 2131492984;
 			
 			// aapt resource value: 0x7f0c005b
 			public const int room = 2131492955;
@@ -1864,11 +1870,20 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0030
 			public const int topPanel = 2131492912;
 			
+			// aapt resource value: 0x7f0c0082
+			public const int txtBio = 2131492994;
+			
+			// aapt resource value: 0x7f0c007d
+			public const int txtJobTitle = 2131492989;
+			
+			// aapt resource value: 0x7f0c0080
+			public const int txtLocation = 2131492992;
+			
 			// aapt resource value: 0x7f0c0069
 			public const int txtMnuText = 2131492969;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int txtSubtitle = 2131492960;
+			// aapt resource value: 0x7f0c005f
+			public const int txtSubtitle = 2131492959;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int up = 2131492872;
@@ -1999,61 +2014,64 @@ namespace Glados.Droid
 			public const int abc_select_dialog_material = 2130968600;
 			
 			// aapt resource value: 0x7f040019
-			public const int FirstView = 2130968601;
+			public const int favourites = 2130968601;
 			
 			// aapt resource value: 0x7f04001a
-			public const int headerbar = 2130968602;
+			public const int FirstView = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int Log = 2130968603;
+			public const int headerbar = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
-			public const int menu = 2130968604;
+			public const int Log = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int notification_media_action = 2130968605;
+			public const int menu = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int notification_media_cancel_action = 2130968606;
+			public const int notification_media_action = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int notification_template_big_media = 2130968607;
+			public const int notification_media_cancel_action = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int notification_template_big_media_narrow = 2130968608;
+			public const int notification_template_big_media = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int notification_template_lines = 2130968609;
+			public const int notification_template_big_media_narrow = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_template_media = 2130968610;
+			public const int notification_template_lines = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_template_part_chronometer = 2130968611;
+			public const int notification_template_media = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_template_part_time = 2130968612;
+			public const int notification_template_part_chronometer = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int Profile = 2130968613;
+			public const int notification_template_part_time = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int select_dialog_item_material = 2130968614;
+			public const int Profile = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int select_dialog_multichoice_material = 2130968615;
+			public const int select_dialog_item_material = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int select_dialog_singlechoice_material = 2130968616;
+			public const int select_dialog_multichoice_material = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int SplashScreen = 2130968617;
+			public const int select_dialog_singlechoice_material = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int support_simple_spinner_dropdown_item = 2130968618;
+			public const int SplashScreen = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int toolbar = 2130968619;
+			public const int support_simple_spinner_dropdown_item = 2130968619;
+			
+			// aapt resource value: 0x7f04002c
+			public const int toolbar = 2130968620;
 			
 			static Layout()
 			{

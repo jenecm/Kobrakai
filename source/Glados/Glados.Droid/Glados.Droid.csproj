@@ -100,6 +100,9 @@
     <AndroidResource Include="Resources\layout\menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\favourites.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

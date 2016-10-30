@@ -2,18 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:grid="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:minWidth="25px"
-    android:minHeight="25px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/linearLayout1"
+    android:id="@+id/llProfile"
     android:background="#E5E5E5">
     <include
         android:id="@+id/headerbar"
         layout="@layout/headerbar" />
     <ListView
-        android:id="@+id/menuListView"
-        android:layout_below="@+id/titleBarLinearLayout"
+        android:id="@+id/lvMenu"
         android:background="#ff64bbf8"
         android:divider="#CFEBFF"
         android:dividerHeight="1dp"
@@ -27,7 +24,7 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:id="@+id/gridLayout2"
+        android:id="@+id/glProfileInfo"
         android:columnCount="2">
         <ImageButton
             android:src="@android:drawable/ic_menu_gallery"
@@ -38,7 +35,7 @@
             android:layout_row="0"
             android:layout_column="0" />
         <GridLayout
-            android:id="@+id/relativeLayout1"
+            android:id="@+id/glProfileDetails"
             android:layout_gravity="right"
             android:layout_height="fill_parent"
             android:layout_width="fill_parent"
@@ -51,74 +48,86 @@
             android:rowCount="2">
             <TextView
                 android:text="Job Title"
-                android:id="@+id/JobTitle"
+                android:id="@+id/lblJobTitle"
                 android:textColor="@android:color/background_dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="64px"
+                android:textSize="20dp"
                 android:layout_row="0"
                 android:layout_column="0" />
             <TextView
-                android:id="@+id/JobTitleTitle"
+                android:id="@+id/txtJobTitle"
                 android:textColor="@android:color/background_dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textSize="50px"
+                android:textSize="15dp"
                 android:layout_row="1"
                 android:layout_column="0" />
         </GridLayout>
     </GridLayout>
-    <LinearLayout
+    <GridLayout
         android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="300px"
-        android:id="@+id/linearLayout3">
+        android:layout_height="wrap_content"
+        android:id="@+id/glLocation"
+        android:columnCount="1"
+        android:rowCount="2">
         <TextView
-            android:text="Current Location: N/A"
-            android:minWidth="25px"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:id="@+id/LocationLabel"
+            android:text="Current Location:"
+            android:id="@+id/lblLocation"
             android:textColor="@android:color/background_dark"
-            android:layout_width="1000px"
-            android:layout_height="100px"
-            android:layout_marginTop="100px"
-            android:textSize="80px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:layout_gravity="center"
-            android:gravity="center" />
-    </LinearLayout>
-    <Button
-        android:text="Request Location"
-        android:layout_width="500px"
-        android:layout_height="200px"
-        android:id="@+id/button3"
-        android:layout_gravity="center"
-        android:background="#22A0FF" />
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="0" />
+        <TextView
+            android:text="N/A"
+            android:id="@+id/txtLocation"
+            android:textColor="@android:color/background_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_row="1"
+            android:layout_column="0" />
+    </GridLayout>
     <TextView
-        android:layout_width="1000px"
-        android:layout_height="100px"
-        android:layout_row="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Bio"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/BioTitleLabel"
+        android:id="@+id/lblBio"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_columnWeight="1"
-        android:textSize="100px"
+        android:textSize="20dp"
         android:typeface="normal"
         android:textColor="@android:color/background_dark"
-        android:layout_marginTop="100px" />
+        android:layout_marginTop="10dp" />
     <TextView
-        android:layout_width="1200px"
-        android:layout_height="300px"
-        android:id="@+id/BioLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtBio"
         android:layout_gravity="center"
-        android:gravity="left"
-        android:textSize="50px"
+        android:gravity="center"
+        android:textSize="15dp"
         android:typeface="normal"
         android:textColor="@android:color/background_dark"
-        android:layout_marginTop="100px" />
+        android:layout_marginTop="10dp" />
+    <Button
+        android:text="Request Location"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnRequestLocation"
+        android:layout_gravity="center"
+        android:background="#22A0FF"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

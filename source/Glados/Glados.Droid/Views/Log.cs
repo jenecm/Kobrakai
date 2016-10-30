@@ -74,15 +74,9 @@ namespace Glados.Droid.Views
 
             var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
 
-            TextView headertext = (TextView)headerbar.GetChildAt(1);
+            TextView headertext = (TextView)headerbar.GetChildAt(0);
 
             headertext.Text = "Log";
-
-            Button backButton = (Button)headerbar.GetChildAt(0);
-            backButton.Click += delegate
-            {
-                StartActivity(typeof(FirstView));
-            };
 
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
 
@@ -98,7 +92,14 @@ namespace Glados.Droid.Views
 
             _menuButton = (Button)_toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
-            
+
+            var listView = FindViewById<ListView>(Resource.Id.lvLogs);
+            var logs = new List<string> {"Person1", "Person2", "Person3", "Person4"};
+
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, logs);
+
+            listView.Adapter = adapter;
+
             //changed sliding menu width to 3/4 of screen width 
             Display display = this.WindowManager.DefaultDisplay;
             var point = new Point();
@@ -117,12 +118,12 @@ namespace Glados.Droid.Views
         {
             string[] strMnuText =
             {
-                "Favourites", "Profile",
+                "Home", "Favourites", "Profile",
                 "Settings", "Log"
             };
             int[] strMnuUrl =
             {
-                Resource.Drawable.icon, Resource.Drawable.icon,
+               Resource.Drawable.icon,  Resource.Drawable.icon, Resource.Drawable.icon,
                 Resource.Drawable.icon, Resource.Drawable.icon
             };
             if (_objAdapterMenu != null)
@@ -137,15 +138,36 @@ namespace Glados.Droid.Views
 
         private void FnMenuSelected(string strMenuText)
         {
-            //_txtActionBarText.Text = strMenuText;
-            //_txtPageName.Text = strMenuText;
-            //selected action goes here
+            Intent profile = new Intent();
             switch (strMenuText)
             {
+                case "Home":
+                    StartActivity(typeof(FirstView));
+                    break;
                 case "Favourites":
+                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
+                    menu.Inflate(Resource.Layout.favourites);
+
+                    List<string> favourites = new List<string> { "Person1", "Person2", "Person3", "Person4", "Person5" };
+
+                    foreach (var f in favourites)
+                    {
+                        menu.Menu.Add(f);
+                    }
+
+                    menu.MenuItemClick += (s1, arg1) => {
+                        //Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
+                        profile = new Intent(this, typeof(Profile));
+                        profile.PutExtra("User", arg1.Item.TitleFormatted);
+                        StartActivity(profile);
+                    };
+                    menu.DismissEvent += (s2, arg2) => { };
+                    menu.Show();
                     break;
                 case "Profile":
-                    StartActivity(typeof(Profile));
+                    profile = new Intent(this, typeof(Profile));
+                    profile.PutExtra("User", "Self");
+                    StartActivity(profile);
                     break;
                 case "Settings":
                     break;

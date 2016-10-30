@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Views.Animations;
 using Glados.Core.Helpers;
 using Java.Security;
+using MvvmCross.Binding.BindingContext;
 
 namespace Glados.Droid.Views
 {
@@ -24,13 +25,13 @@ namespace Glados.Droid.Views
 
         private ListView _menuListView;
         private MenuListAdapterClass _objAdapterMenu;
-        //ImageView menuIconImageView;
         private int _intDisplayWidth;
         private bool _isSingleTapFired = false;
-        //private TextView _txtActionBarText;
-        //private TextView _txtPageName;
-        //private TextView _txtDescription;
-        //private ImageView _btnDescExpander;
+
+        private ListView _listView;
+        private AutoCompleteTextView _actv;
+        private List<string> _items;
+        private List<string> _rooms;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -46,30 +47,6 @@ namespace Glados.Droid.Views
             TapEvent();
             FnBindMenu();
 
-
-
-
-            //listView = FindViewById<ListView>(Resource.Id.notifications);
-            //actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
-
-            //items = new List<string>();
-            //items.Add("Dan requested your location");
-            //items.Add("Jan is at D101");
-            //items.Add("Bob is not available");
-
-            //rooms = new List<string>();
-            //rooms.Add("F101");
-            //rooms.Add("F102");
-            //rooms.Add("F103");
-
-            //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
-
-            //listView.Adapter = adapter;
-
-            //ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, rooms);
-
-            //actv.Adapter = adapterTwo;
-
             Button profileButton = FindViewById<Button>(Resource.Id.log);
             profileButton.Click += delegate
             {
@@ -78,63 +55,63 @@ namespace Glados.Droid.Views
             Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
             checkinButton.Click += delegate
             {
-                StartActivity(typeof(Profile));
+                Intent profile = new Intent(this, typeof(Profile));
+                profile.PutExtra("User", "Self");
+                StartActivity(profile);
             };
         }
 
         private void TapEvent()
         {
-            var toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
-
-
             //title bar menu icon
             _menuButton.Click += delegate(object sender, EventArgs e)
             {
                 if (!_isSingleTapFired)
                 {
-                    FnToggleMenu(); //find definition in below steps
+                    FnToggleMenu();
                     _isSingleTapFired = false;
                 }
             };
-            //bottom expandable description window
-            //btnDescExpander.Click += delegate(object sender, EventArgs e)
-            //{
-            //    FnDescriptionWindowToggle();
-            //};
         }
 
         private void FnInitialization()
         {
-            //gesture initialization
             _gestureListener = new GestureListener();
             _gestureListener.LeftEvent += GestureLeft; //find definition in below steps
             _gestureListener.RightEvent += GestureRight;
             _gestureListener.SingleTapEvent += SingleTap;
             _gestureDetector = new GestureDetector(this, _gestureListener);
-
-
+            
             var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
-
-            TextView headertext = (TextView) headerbar.GetChildAt(1);
-
+            TextView headertext = (TextView) headerbar.GetChildAt(0);
             headertext.Text = "Home";
-
-            Button backButton = (Button) headerbar.GetChildAt(0);
-            backButton.Visibility = ViewStates.Invisible;
-
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
-
             var toolText = (TextView) _toolbar.GetChildAt(1);
             toolText.Text = StorageHelper.GetValue("Name");
-
             _menuButton = (Button) _toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
-            //txtActionBarText = FindViewById<TextView>(Resource.Id.txtActionBarText);
-            //txtPageName = FindViewById<TextView>(Resource.Id.txtPage);
-            //txtDescription = FindViewById<TextView>(Resource.Id.txtDescription);
-            //btnDescExpander = FindViewById<ImageView>(Resource.Id.btnImgExpander);
 
-            //changed sliding menu width to 3/4 of screen width 
+            _listView = FindViewById<ListView>(Resource.Id.notifications);
+            _actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
+
+            _items = new List<string>();
+            _items.Add("Dan requested your location");
+            _items.Add("Jan is at D101");
+            _items.Add("Bob is not available");
+
+            _rooms = new List<string>();
+            _rooms.Add("F101");
+            _rooms.Add("F102");
+            _rooms.Add("F103");
+
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, _items);
+
+            _listView.Adapter = adapter;
+
+            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, _rooms);
+
+            _actv.Adapter = adapterTwo;
+
             Display display = this.WindowManager.DefaultDisplay;
             var point = new Point();
             display.GetSize(point);
@@ -152,12 +129,12 @@ namespace Glados.Droid.Views
         {
             string[] strMnuText =
             {
-                "Favourites", "Profile",
+                "Home", "Favourites", "Profile",
                 "Settings", "Log"
             };
             int[] strMnuUrl =
             {
-                Resource.Drawable.icon, Resource.Drawable.icon,
+                Resource.Drawable.icon, Resource.Drawable.icon, Resource.Drawable.icon,
                 Resource.Drawable.icon, Resource.Drawable.icon
             };
             if (_objAdapterMenu != null)
@@ -172,16 +149,37 @@ namespace Glados.Droid.Views
 
         private void FnMenuSelected(string strMenuText)
         {
-            //_txtActionBarText.Text = strMenuText;
-            //_txtPageName.Text = strMenuText;
-            //selected action goes here
+            Intent profile = new Intent();
+
             switch (strMenuText)
             {
+                case "Home":
+                    StartActivity(typeof(FirstView));
+                    break;
                 case "Favourites":
+                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
+                    menu.Inflate(Resource.Layout.favourites);
+
+                    List<string> favourites = new List<string> {"Person1", "Person2", "Person3", "Person4", "Person5"};
+
+                    foreach (var f in favourites)
+                    {
+                        menu.Menu.Add(f);
+                    }
                     
+                    menu.MenuItemClick += (s1, arg1) => {
+                        //Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
+                        profile = new Intent(this, typeof(Profile));
+                        profile.PutExtra("User", arg1.Item.TitleFormatted);
+                        StartActivity(profile);
+                    };
+                    menu.DismissEvent += (s2, arg2) => {};
+                    menu.Show();
                     break;
                 case "Profile":
-                    StartActivity(typeof(Profile));
+                    profile = new Intent(this, typeof(Profile));
+                    profile.PutExtra("User", "Self");
+                    StartActivity(profile);
                     break;
                 case "Settings":
                     break;
