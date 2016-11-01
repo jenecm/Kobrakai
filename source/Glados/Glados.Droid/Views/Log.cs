@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using Amazon;
+using Amazon.CognitoIdentity;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -27,9 +32,14 @@ namespace Glados.Droid.Views
 
         private ListView _menuListView;
         private Droid.MenuListAdapterClass _objAdapterMenu;
-        //ImageView menuIconImageView;
         private int _intDisplayWidth;
         private bool _isSingleTapFired = false;
+
+        private List<string> rooms;
+        private AutoCompleteTextView actv;
+        private List<string> items;
+        private ListView listView;
+        private int Location = 0;
 
         protected override void OnCreate(Bundle bundle)
 		{
@@ -100,8 +110,32 @@ namespace Glados.Droid.Views
 
             listView.Adapter = adapter;
 
-            //changed sliding menu width to 3/4 of screen width 
-            Display display = this.WindowManager.DefaultDisplay;
+
+            listView = FindViewById<ListView>(Resource.Id.notifications);
+            actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
+
+            var locationDialog = new AlertDialog.Builder(this);
+
+            TextView tv = FindViewById<TextView>(Resource.Id.setTo);
+
+            tv.Text = User.GetLocation();
+
+            actv.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+            {
+                Location = e.Position;
+
+                User.SetLocation(rooms.ElementAt(Location));
+
+                UpdateItem();
+
+                locationDialog.SetMessage(Location + "." + " " + "Your location is set to" + " " + User.GetLocation());
+                locationDialog.SetNegativeButton("Done", delegate { });
+                locationDialog.Show();
+
+                tv.Text = User.GetLocation();
+};
+                Display display = this.WindowManager.DefaultDisplay;
+            
             var point = new Point();
             display.GetSize(point);
             _intDisplayWidth = point.X;
@@ -228,6 +262,29 @@ namespace Glados.Droid.Views
                 _menuListView.Animation.Duration = 300;
             }
         }
+        public async Task UpdateItem()
+        {
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+                               "us-west-2:d17455cb-c093-403a-a797-d8b01906f7b2", // Identity Pool 
+
+                               RegionEndpoint.USWest2 // Regio
+
+                           );
+            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USWest2);
+            // Pass the client to the DynamoDBConte
+            DynamoDBContext context = new DynamoDBContext(client);
+
+            var theUser = new Document();
+
+            theUser["id"] = User.GetId();
+            theUser["location"] = User.GetLocation();
+            theUser["name"] = User.GetName();
+            theUser["position"] = User.GetPosition();
+
+            Table users = Table.LoadTable(client, "kobrakaiUsers");
+
+            Document updatedUser = await users.UpdateItemAsync(theUser);
+        }
     }
 
     public class MenuListAdapterClass : BaseAdapter<string>
@@ -304,4 +361,5 @@ namespace Glados.Droid.Views
         }
 
     }
+
 }

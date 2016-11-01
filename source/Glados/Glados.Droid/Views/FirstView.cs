@@ -11,6 +11,13 @@ using Android.Views.Animations;
 using Glados.Core.Helpers;
 using Java.Security;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.Droid.Views;
+using System.Threading.Tasks;
+using Amazon;
+using Amazon.CognitoIdentity;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
 
 namespace Glados.Droid.Views
 {
@@ -39,7 +46,19 @@ namespace Glados.Droid.Views
             //Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.FirstView);
 
-            StorageHelper.StoreValue("Name", "Ashleigh");
+            var checkInDialog = new AlertDialog.Builder(this);
+
+            var locationDialog = new AlertDialog.Builder(this);
+
+            locationID.getListFromDDB();
+
+            // set the id of the user to the saved one on the device or create a new id and save it to the device
+            SaveId.Saveid();
+
+            // search the AWS DDB database for the user information associated with the id saved on the device
+            // and update any fields in the user class that need to be updated from the AWS DDB
+            GetUserFromDdb(User.GetId());
+
             StorageHelper.StoreValue("Job", "University Student");
             StorageHelper.StoreValue("Bio", "Is a person. Hates this subject.");
 
@@ -55,9 +74,9 @@ namespace Glados.Droid.Views
             Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
             checkinButton.Click += delegate
             {
-                Intent profile = new Intent(this, typeof(Profile));
-                profile.PutExtra("User", "Self");
-                StartActivity(profile);
+                checkInDialog.SetMessage("Scan");
+                checkInDialog.SetNegativeButton("Done", delegate { });
+                checkInDialog.Show();
             };
         }
 
@@ -81,18 +100,17 @@ namespace Glados.Droid.Views
             _gestureListener.RightEvent += GestureRight;
             _gestureListener.SingleTapEvent += SingleTap;
             _gestureDetector = new GestureDetector(this, _gestureListener);
-            
+
             var headerbar = FindViewById<LinearLayout>(Resource.Id.headerbar);
             TextView headertext = (TextView) headerbar.GetChildAt(0);
             headertext.Text = "Home";
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
             var toolText = (TextView) _toolbar.GetChildAt(1);
-            toolText.Text = StorageHelper.GetValue("Name");
+            toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
             _menuButton = (Button) _toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
 
             _listView = FindViewById<ListView>(Resource.Id.notifications);
-            _actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
 
             _items = new List<string>();
             _items.Add("Dan requested your location");
@@ -104,11 +122,14 @@ namespace Glados.Droid.Views
             _rooms.Add("F102");
             _rooms.Add("F103");
 
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, _items);
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1,
+                _items);
 
             _listView.Adapter = adapter;
+            _actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
 
-            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, _rooms);
+            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this,
+                Android.Resource.Layout.SimpleDropDownItem1Line, _rooms);
 
             _actv.Adapter = adapterTwo;
 
@@ -166,14 +187,15 @@ namespace Glados.Droid.Views
                     {
                         menu.Menu.Add(f);
                     }
-                    
-                    menu.MenuItemClick += (s1, arg1) => {
+
+                    menu.MenuItemClick += (s1, arg1) =>
+                    {
                         //Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
                         profile = new Intent(this, typeof(Profile));
                         profile.PutExtra("User", arg1.Item.TitleFormatted);
                         StartActivity(profile);
                     };
-                    menu.DismissEvent += (s2, arg2) => {};
+                    menu.DismissEvent += (s2, arg2) => { };
                     menu.Show();
                     break;
                 case "Profile":
@@ -240,80 +262,67 @@ namespace Glados.Droid.Views
                 _menuListView.Animation.Duration = 300;
             }
         }
+
+        public async Task UpdateItem()
+        {
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+                "us-west-2:d17455cb-c093-403a-a797-d8b01906f7b2", // Identity Pool 
+
+                RegionEndpoint.USWest2 // Regio
+
+            );
+            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USWest2);
+            // Pass the client to the DynamoDBConte
+            DynamoDBContext context = new DynamoDBContext(client);
+
+            var theUser = new Document();
+
+            theUser["id"] = User.GetId();
+            theUser["location"] = User.GetLocation();
+            theUser["name"] = User.GetName();
+            theUser["position"] = User.GetPosition();
+
+            Table users = Table.LoadTable(client, "kobrakaiUsers");
+
+            Document updatedUser = await users.UpdateItemAsync(theUser);
+        }
+
+        public async Task GetUserFromDdb(string id)
+        {
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+                "us-west-2:d17455cb-c093-403a-a797-d8b01906f7b2", // Identity Pool 
+
+                RegionEndpoint.USWest2 // Regio
+
+            );
+            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USWest2);
+            // Pass the client to the DynamoDBCont
+            DynamoDBContext context = new DynamoDBContext(client);
+
+            Table users = Table.LoadTable(client, "kobrakaiUsers");
+
+            var theUser = await users.GetItemAsync(id);
+
+            if (
+                !((string.IsNullOrEmpty(theUser["name"])) && (string.IsNullOrEmpty(theUser["location"])) &&
+                  (string.IsNullOrEmpty(theUser["position"]))))
+            {
+                User.SetName(theUser["name"]);
+                User.SetLocation(theUser["location"]);
+                User.SetPosition(theUser["position"]);
+            }
+
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+
+            _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
+            var toolText = (TextView)_toolbar.GetChildAt(1);
+            toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
+
+        }
     }
-
-    //public class MenuListAdapterClass : BaseAdapter<string>
-    //{
-    //    private Activity _context;
-    //    private string[] _mnuText;
-    //    private int[] _mnuUrl;
-    //    //action event to pass selected menu item to main activity
-    //    internal event Action<string> actionMenuSelected;
-    //    public MenuListAdapterClass(Activity context, string[] strMnu, int[] intImage)
-    //    {
-    //        _context = context;
-    //        _mnuText = strMnu;
-    //        _mnuUrl = intImage;
-    //    }
-    //    public override string this[int position]
-    //    {
-    //        get { return this._mnuText[position]; }
-    //    }
-
-    //    public override int Count
-    //    {
-    //        get { return this._mnuText.Length; }
-    //    }
-
-    //    public override long GetItemId(int position)
-    //    {
-    //        return position;
-    //    }
-    //    public override View GetView(int position, View convertView, ViewGroup parent)
-    //    {
-    //        MenuListViewHolderClass objMenuListViewHolderClass;
-    //        View view;
-    //        view = convertView;
-    //        if (view == null)
-    //        {
-    //            view = _context.LayoutInflater.Inflate(Resource.Layout.menu, parent, false);
-    //            objMenuListViewHolderClass = new MenuListViewHolderClass();
-
-    //            objMenuListViewHolderClass.txtMnuText = view.FindViewById<TextView>(Resource.Id.txtMnuText);
-    //            objMenuListViewHolderClass.ivMenuImg = view.FindViewById<ImageView>(Resource.Id.ivMenuImg);
-
-    //            objMenuListViewHolderClass.initialize(view);
-    //            view.Tag = objMenuListViewHolderClass;
-    //        }
-    //        else
-    //        {
-    //            objMenuListViewHolderClass = (MenuListViewHolderClass)view.Tag;
-    //        }
-    //        objMenuListViewHolderClass.viewClicked = () =>
-    //        {
-    //            if (actionMenuSelected != null)
-    //            {
-    //                actionMenuSelected(_mnuText[position]);
-    //            }
-    //        };
-    //        objMenuListViewHolderClass.txtMnuText.Text = _mnuText[position];
-    //        objMenuListViewHolderClass.ivMenuImg.SetImageResource(_mnuUrl[position]);
-    //        return view;
-    //    }
-    //}
-    ////Viewholder class
-    //internal class MenuListViewHolderClass : Java.Lang.Object
-    //{
-    //    internal Action viewClicked { get; set; }
-    //    internal TextView txtMnuText;
-    //    internal ImageView ivMenuImg;
-    //    public void initialize(View view)
-    //    {
-    //        view.Click += delegate
-    //        {
-    //            viewClicked();
-    //        };
-    //    }
-
-    //}
 }

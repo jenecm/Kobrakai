@@ -7,4 +7,27 @@
 	<string name="app_name">Glados</string>
 	<string name="your_room">not set</string>
 	<!--<string name="toolbar">Alice</string>-->
+  <string name="location">Your location is set to:</string>
+  <string name="notSet">not set</string>
+  <string name="userName">Your name:</string>
+  <string name="userPosition">Your position, title or team:</string>
+  <string name="userCurrentPosition">Your position, title or team is set to:</string>
+  <string name="position">not set</string>
+  <string name="searchUser_position">Position, Title or Team:</string>
+  <string name="searchUser_location">Location:</string>
+  <string name="user_position">not set</string>
+  <string name="user_location">not set</string>
+  <string name="userLocation">Your current location:</string>
+  <string name="requestLocation_button">Request Location</string>
+  <string name="checkin_button">Check In</string>
+  <string name="back_button">back</string>
+  <string name="update_button">update</string>
+  <string name="busy_button">busy</string>
+  <string name="send_button">send</string>
+  <string name="ignore_button">ignore</string>
+  <string name="log_button">Log</string>
+  <string name="map_button">Map</string>
+  <string name="app_name">Glados</string>
+  <string name="your_room">Select new location</string>
+  <string name="toolbar">Glados</string>
 </resources>
