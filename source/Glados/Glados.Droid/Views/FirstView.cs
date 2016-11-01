@@ -3,7 +3,10 @@ using Android.OS;
 using System.Collections.Generic;
 using MvvmCross.Droid.Views;
 using Android.Widget;
+using EstimoteSdk;
 using Android.Content;
+using Glados.Core.Models;
+using System.Linq;
 
 namespace Glados.Droid.Views
 {
@@ -14,13 +17,19 @@ namespace Glados.Droid.Views
 		private List<string> rooms;
 		private ListView listView;
 		private AutoCompleteTextView actv;
+        private Glados.Core.ViewModels.FirstViewModel vm;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.FirstView);
+            vm = this.ViewModel as Core.ViewModels.FirstViewModel;
 
-			var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            var beaconManager = new BeaconManager(this);
+            beaconManager.Eddystone += BeaconManager_Eddystone;
+            //beaconManager.Connect();
+
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 
 			//Toolbar will now take on default actionbar characteristics
 			SetActionBar(toolbar);
@@ -52,5 +61,26 @@ namespace Glados.Droid.Views
 				StartActivity(typeof(Log));
 			};
         }
+        private void BeaconManager_Eddystone(object sender, BeaconManager.EddystoneEventArgs e)
+        {
+            vm.EddyStoneList.Clear();
+            List<EddyStone> eddys = new List<EddyStone>(e.Eddystones.Count);
+            var sortedEddys = eddys.OrderBy(ed => ed.Rssi);
+            foreach (var stone in sortedEddys)
+            {
+                vm.EddyStoneList.Add(new Core.Models.EddyStone
+                {
+                    CalibratedTxPower = stone.CalibratedTxPower,
+                    Instance = stone.Instance,
+                    MacAddress = stone.MacAddress.ToString(),
+                    Namespace = stone.Namespace,
+                    Rssi = stone.Rssi,
+                    TelemetryLastSeenMillis = System.Convert.ToInt16(stone.TelemetryLastSeenMillis),
+                    Url = stone.Url
+                });
+            }
+        }
+
     }
+
 }

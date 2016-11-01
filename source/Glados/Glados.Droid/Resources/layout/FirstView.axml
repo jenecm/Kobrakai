@@ -11,6 +11,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/toolbar">
+        <MvxListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="#FFCC00"
+            android:dividerHeight="4px"
+            local:MvxBind="ItemsSource EddyStoneList"
+            local:MvxItemTemplate="@layout/eddystone" />
         <SearchView
             android:minWidth="25px"
             android:minHeight="25px"

@@ -1978,55 +1978,58 @@ namespace Glados.Droid
 			public const int abc_select_dialog_material = 2130968600;
 			
 			// aapt resource value: 0x7f040019
-			public const int FirstView = 2130968601;
+			public const int EddyStone = 2130968601;
 			
 			// aapt resource value: 0x7f04001a
-			public const int Log = 2130968602;
+			public const int FirstView = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int notification_media_action = 2130968603;
+			public const int Log = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
-			public const int notification_media_cancel_action = 2130968604;
+			public const int notification_media_action = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int notification_template_big_media = 2130968605;
+			public const int notification_media_cancel_action = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int notification_template_big_media_narrow = 2130968606;
+			public const int notification_template_big_media = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int notification_template_lines = 2130968607;
+			public const int notification_template_big_media_narrow = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int notification_template_media = 2130968608;
+			public const int notification_template_lines = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int notification_template_part_chronometer = 2130968609;
+			public const int notification_template_media = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_template_part_time = 2130968610;
+			public const int notification_template_part_chronometer = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int Profile = 2130968611;
+			public const int notification_template_part_time = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int select_dialog_item_material = 2130968612;
+			public const int Profile = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int select_dialog_multichoice_material = 2130968613;
+			public const int select_dialog_item_material = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int select_dialog_singlechoice_material = 2130968614;
+			public const int select_dialog_multichoice_material = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int SplashScreen = 2130968615;
+			public const int select_dialog_singlechoice_material = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int support_simple_spinner_dropdown_item = 2130968616;
+			public const int SplashScreen = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int toolbar = 2130968617;
+			public const int support_simple_spinner_dropdown_item = 2130968617;
+			
+			// aapt resource value: 0x7f04002a
+			public const int toolbar = 2130968618;
 			
 			static Layout()
 			{
@@ -2114,29 +2117,56 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f060012
 			public const int abc_toolbar_collapse_description = 2131099666;
 			
-			// aapt resource value: 0x7f060018
-			public const int app_name = 2131099672;
+			// aapt resource value: 0x7f060021
+			public const int app_name = 2131099681;
 			
-			// aapt resource value: 0x7f060015
-			public const int checkin_button = 2131099669;
+			// aapt resource value: 0x7f06001e
+			public const int checkin_button = 2131099678;
 			
 			// aapt resource value: 0x7f060014
-			public const int location = 2131099668;
+			public const int error_no_bluetooth_enabled = 2131099668;
+			
+			// aapt resource value: 0x7f060015
+			public const int error_no_bluetooth_le = 2131099669;
 			
 			// aapt resource value: 0x7f060016
-			public const int log_button = 2131099670;
+			public const int error_no_location_permission = 2131099670;
+			
+			// aapt resource value: 0x7f06001d
+			public const int location = 2131099677;
+			
+			// aapt resource value: 0x7f06001f
+			public const int log_button = 2131099679;
+			
+			// aapt resource value: 0x7f060020
+			public const int map_button = 2131099680;
 			
 			// aapt resource value: 0x7f060017
-			public const int map_button = 2131099671;
+			public const int requesting_location_access = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int requesting_location_access_cancel = 2131099672;
+			
+			// aapt resource value: 0x7f060019
+			public const int requesting_location_access_ok = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int requesting_location_access_rationale = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int requesting_location_permission = 2131099675;
+			
+			// aapt resource value: 0x7f06001c
+			public const int requesting_location_permission_rationale = 2131099676;
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;
 			
-			// aapt resource value: 0x7f06001a
-			public const int toolbar = 2131099674;
+			// aapt resource value: 0x7f060023
+			public const int toolbar = 2131099683;
 			
-			// aapt resource value: 0x7f060019
-			public const int your_room = 2131099673;
+			// aapt resource value: 0x7f060022
+			public const int your_room = 2131099682;
 			
 			static String()
 			{
@@ -2583,8 +2613,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090073
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296371;
 			
-			// aapt resource value: 0x7f090134
-			public const int MyCustomTheme = 2131296564;
+			// aapt resource value: 0x7f090135
+			public const int MyCustomTheme = 2131296565;
 			
 			// aapt resource value: 0x7f090010
 			public const int Platform_AppCompat = 2131296272;
@@ -2856,8 +2886,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0900e9
 			public const int Theme_AppCompat_NoActionBar = 2131296489;
 			
+			// aapt resource value: 0x7f090134
+			public const int Theme_Splash = 2131296564;
+			
 			// aapt resource value: 0x7f090133
-			public const int Theme_Splash = 2131296563;
+			public const int Theme_Transparent = 2131296563;
 			
 			// aapt resource value: 0x7f0900ea
 			public const int ThemeOverlay_AppCompat = 2131296490;
