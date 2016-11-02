@@ -1,4 +1,6 @@
 using MvvmCross.Core.ViewModels;
+using System.Collections.ObjectModel;
+using Glados.Core.Models;
 
 namespace Glados.Core.ViewModels
 {
@@ -11,5 +13,13 @@ namespace Glados.Core.ViewModels
             get { return _hello; }
             set { SetProperty (ref _hello, value); }
         }
+
+        private ObservableCollection<EddyStone> eddyStoneList = new ObservableCollection<EddyStone>();
+        public ObservableCollection<EddyStone> EddyStoneList
+        {
+            get { return eddyStoneList; }
+            set { SetProperty(ref eddyStoneList, value); }
+        }
+
     }
 }
