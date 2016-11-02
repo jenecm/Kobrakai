@@ -15,6 +15,7 @@ namespace Glados.Core.ViewModels
             set { SetProperty (ref _hello, value); }
         }
 
+        private ObservableCollection<EddyStone> eddyStoneList = new ObservableCollection<EddyStone>();
         public ObservableCollection<EddyStone> EddyStoneList
         {
             get { return eddyStoneList; }

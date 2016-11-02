@@ -20,11 +20,15 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using MvvmCross.Binding.ExtensionMethods;
+using Glados.Core.Models;
+using System.Linq;
+using EstimoteSdk;
+
 
 namespace Glados.Droid.Views
 {
     [Activity(Label = "Home", Icon = "@mipmap/icon")]
-    public class FirstView : MvxActivity
+    public class FirstView : MvxActivity, BeaconManager.IServiceReadyCallback
     {
         private GestureDetector _gestureDetector;
         private GestureListener _gestureListener;
@@ -46,11 +50,24 @@ namespace Glados.Droid.Views
         private List<usersDDB> searchedItems;
         private string searched;
 
+        //Beacon Variables
+        private BeaconManager _beaconManager;
+        private Glados.Core.ViewModels.FirstViewModel vm;
+        string edScanId;
+        bool isScanning;
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             //Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.FirstView);
+
+            vm = this.ViewModel as Glados.Core.ViewModels.FirstViewModel;
+            _beaconManager = new BeaconManager(this);
+            _beaconManager.Eddystone += BeaconManager_Eddystone;
+            _beaconManager.Connect(this);
+
 
             var checkInDialog = new AlertDialog.Builder(this);
 
@@ -331,6 +348,52 @@ namespace Glados.Droid.Views
             var toolText = (TextView)_toolbar.GetChildAt(1);
             toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
 
+        }
+
+        private void BeaconManager_Eddystone(object sender, BeaconManager.EddystoneEventArgs e)
+        {
+            vm.EddyStoneList.Clear();
+            List<EddyStone> eddys = new List<EddyStone>(e.Eddystones.Count);
+            var sortedEddys = eddys.OrderBy(ed => ed.Rssi);
+            foreach (var stone in sortedEddys)
+            {
+                System.Diagnostics.Debug.WriteLine("BeaconFound");
+                System.Threading.Thread.Sleep(10000);
+
+                vm.EddyStoneList.Add(new Core.Models.EddyStone
+                {
+                    CalibratedTxPower = stone.CalibratedTxPower,
+                    Instance = stone.Instance,
+                    MacAddress = stone.MacAddress.ToString(),
+                    Namespace = stone.Namespace,
+                    Rssi = stone.Rssi,
+                    TelemetryLastSeenMillis = System.Convert.ToInt16(stone.TelemetryLastSeenMillis),
+                    Url = stone.Url
+                });
+            }
+
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            if (!isScanning)
+            {
+                return;
+            }
+            _beaconManager.StopEddystoneScanning(edScanId);
+        }
+        public void OnServiceReady()
+        {
+            isScanning = true;
+            edScanId = _beaconManager.StartEddystoneScanning();
+        }
+
+        protected override void OnDestroy()
+        {
+            // Make sure we disconnect from the Estimote.
+            _beaconManager.Disconnect();
+            base.OnDestroy();
         }
     }
 }
