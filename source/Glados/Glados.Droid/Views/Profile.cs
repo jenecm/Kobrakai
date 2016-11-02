@@ -130,16 +130,40 @@ namespace Glados.Droid
                     User.SetPosition(edit_position.Text);
                 }
 
+                if (!String.IsNullOrEmpty(edit_location.Text))
+                {
+                    String newID = User.GetLocation();
+                    String newBeacon = "not set";
+                    String newQR = "not set";
+                    if (!locationsID.getLocationsList().Contains(newID))
+                    {
+                        locationsID.addNewLocationToDDB(newID, newBeacon, newQR);
+                        locationsID.addLocationToList(newID);
+                    }
+                    // change all notifications in the AWS DDB for the device user to not active
+                    foreach (notificationsDDB notification in notificationsList.getNotificationsList())
+                    {
+
+                        notificationsList.addNotificagtionToDDB(notification.id, notification.lost, notification.searcher, "false");
+                        notificationsList.updateNotification(notification.id);
+
+                    }
+                }
+
                 if (!((String.IsNullOrEmpty(edit_name.Text)) && (String.IsNullOrEmpty(edit_location.Text)) && (String.IsNullOrEmpty(edit_position.Text))))
                 {
                     //update AWS DDB database to match the values stored in the static class user
                     UpdateItem();
+
                     updatedDetialsDialog.SetMessage("Your details have been updated");
                     updatedDetialsDialog.SetNegativeButton("Done", delegate { });
                     updatedDetialsDialog.Show();
 
+                    //set the text of the TextView, called setTo, to show the location stored in the static class user
                     tv.Text = User.GetLocation();
+                    //set the text of the TextView, called setPosition, to show the position stored in the static class user
                     tvPosition.Text = User.GetPosition();
+                    //set the text of the TextView, called aToolBar, to show the name stored in the static class user
                     _toolText.Text = User.GetName();
 
 
@@ -150,6 +174,9 @@ namespace Glados.Droid
                     detialsNotUpdatedDialog.SetNegativeButton("Done", delegate { });
                     detialsNotUpdatedDialog.Show();
                 }
+
+
+
             };
 
 
@@ -162,20 +189,41 @@ namespace Glados.Droid
 
             actv.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
-                Location = e.Position;
+                if (!String.IsNullOrEmpty(actv.Text))
+                {
+                    //use the static class user and set the location stored by this class 
+                    //to the element in the list named rooms at the position stored in the variable named Location
+                    User.SetLocation(locationsID.getMatchingLocation(actv.Text));
 
-                User.SetLocation(locationsID.getLocationsList()[Location]);
+                    //update AWS DDB database to match the values stored in the static class user
+                    UpdateItem();
 
-                UpdateItem();
+                    //use a dialog box to inform the user of the position in the array and the room setting, 
+                    //this is for debugging and should be taken out or modified on ship
+                    locationDialog.SetMessage("Your location is set to" + " " + User.GetLocation());
+                    locationDialog.SetNegativeButton("Done", delegate { });
+                    locationDialog.Show();
 
-                locationDialog.SetMessage(Location + "." + " " + "Your location is set to" + " " + User.GetLocation());
-                locationDialog.SetNegativeButton("Done", delegate { });
-                locationDialog.Show();
+                    //set the text of the TextView, called setTo, to show the location stored in the static class user
+                    tv.Text = User.GetLocation();
 
-                tv.Text = User.GetLocation();
+                    edit_location.Text = User.GetLocation();
 
-                edit_location.Text = User.GetLocation();
+                    // change all notifications in the AWS DDB for this the device user to not active
+                    foreach (notificationsDDB notification in notificationsList.getNotificationsList())
+                    {
 
+                        notificationsList.addNotificagtionToDDB(notification.id, notification.lost, notification.searcher, "false");
+                        notificationsList.updateNotification(notification.id);
+
+                    }
+                }
+                else
+                {
+                    locationDialog.SetMessage("Your location is set to" + " " + User.GetLocation() + "." + " " + "The string entered is null or empty.");
+                    locationDialog.SetNegativeButton("Done", delegate { });
+                    locationDialog.Show();
+                }
             };
 
             //changed sliding menu width to 3/4 of screen width 

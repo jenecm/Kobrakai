@@ -1505,8 +1505,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c000a
 			public const int MvxBindingTagUnique = 2131492874;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int aToolBar = 2131492999;
+			// aapt resource value: 0x7f0c0086
+			public const int aToolBar = 2131492998;
 			
 			// aapt resource value: 0x7f0c0068
 			public const int action0 = 2131492968;
@@ -1565,8 +1565,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c001a
 			public const int beginning = 2131492890;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int btnHamburger = 2131492998;
+			// aapt resource value: 0x7f0c0085
+			public const int btnHamburger = 2131492997;
 			
 			// aapt resource value: 0x7f0c0062
 			public const int busy = 2131492962;
@@ -1607,14 +1607,14 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int disableHome = 2131492878;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int editLocation = 2131492989;
+			// aapt resource value: 0x7f0c007c
+			public const int editLocation = 2131492988;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int editName = 2131492985;
+			// aapt resource value: 0x7f0c0078
+			public const int editName = 2131492984;
 			
-			// aapt resource value: 0x7f0c007b
-			public const int editPosition = 2131492987;
+			// aapt resource value: 0x7f0c007a
+			public const int editPosition = 2131492986;
 			
 			// aapt resource value: 0x7f0c0055
 			public const int editSearch = 2131492949;
@@ -1685,8 +1685,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0075
 			public const int llProfile = 2131492981;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int location = 2131492988;
+			// aapt resource value: 0x7f0c007b
+			public const int location = 2131492987;
 			
 			// aapt resource value: 0x7f0c0059
 			public const int log = 2131492953;
@@ -1712,11 +1712,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c005c
 			public const int myLocation = 2131492956;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int myPosition = 2131492991;
+			// aapt resource value: 0x7f0c007e
+			public const int myPosition = 2131492990;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int name = 2131492984;
+			// aapt resource value: 0x7f0c0077
+			public const int name = 2131492983;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int never = 2131492896;
@@ -1733,8 +1733,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c002f
 			public const int parentPanel = 2131492911;
 			
-			// aapt resource value: 0x7f0c007a
-			public const int position = 2131492986;
+			// aapt resource value: 0x7f0c0079
+			public const int position = 2131492985;
 			
 			// aapt resource value: 0x7f0c0005
 			public const int progress_circular = 2131492869;
@@ -1745,8 +1745,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int radio = 2131492925;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int requestLocation = 2131492997;
+			// aapt resource value: 0x7f0c0084
+			public const int requestLocation = 2131492996;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int room = 2131492957;
@@ -1766,14 +1766,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0056
 			public const int searchButton = 2131492950;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int searchUserLocation = 2131492995;
+			// aapt resource value: 0x7f0c0082
+			public const int searchUserLocation = 2131492994;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int searchUserPosition = 2131492993;
-			
-			// aapt resource value: 0x7f0c0077
-			public const int searchView1 = 2131492983;
+			// aapt resource value: 0x7f0c0080
+			public const int searchUserPosition = 2131492992;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int search_badge = 2131492935;
@@ -1811,8 +1808,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0063
 			public const int send = 2131492963;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int setPosition = 2131492992;
+			// aapt resource value: 0x7f0c007f
+			public const int setPosition = 2131492991;
 			
 			// aapt resource value: 0x7f0c0065
 			public const int setTo = 2131492965;
@@ -1886,17 +1883,17 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0008
 			public const int up = 2131492872;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int update = 2131492990;
+			// aapt resource value: 0x7f0c007d
+			public const int update = 2131492989;
 			
 			// aapt resource value: 0x7f0c0014
 			public const int useLogo = 2131492884;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int userLocation = 2131492996;
+			// aapt resource value: 0x7f0c0083
+			public const int userLocation = 2131492995;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int userPosition = 2131492994;
+			// aapt resource value: 0x7f0c0081
+			public const int userPosition = 2131492993;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int userSearch = 2131492948;

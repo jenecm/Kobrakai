@@ -148,7 +148,7 @@ namespace Glados.Droid.Views
                     else
                     {
                         //Show a toast where someMessage is a string ie, string someMessage = "this is a message";
-                        RunOnUiThread(() => Toast.MakeText(this, "Results still loading, try again later.", ToastLength.Long).Show());
+                        RunOnUiThread(() => Toast.MakeText(this, "The name you entered may not exist. Please try again.", ToastLength.Long).Show());
                     }
 
                 }

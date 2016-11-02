@@ -36,7 +36,6 @@ namespace Glados.Droid.Views
         private int _intDisplayWidth;
         private bool _isSingleTapFired = false;
 
-        private List<string> rooms;
         private AutoCompleteTextView actv;
         private List<string> items;
         private ListView listView;
@@ -181,19 +180,39 @@ namespace Glados.Droid.Views
 
             actv.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
-                Location = e.Position;
+                if (!String.IsNullOrEmpty(actv.Text))
+                {
+                    //use the static class user and set the location stored by this class 
+                    //to the element in the list named rooms at the position stored in the variable named Location
+                    User.SetLocation(locationsID.getMatchingLocation(actv.Text));
 
-                User.SetLocation(rooms.ElementAt(Location));
+                    //update AWS DDB database to match the values stored in the static class user
+                    UpdateItem();
 
-                UpdateItem();
+                    //use a dialog box to inform the user of the position in the array and the room setting, 
+                    //this is for debugging and should be taken out or modified on ship
+                    locationDialog.SetMessage("Your location is set to" + " " + User.GetLocation());
+                    locationDialog.SetNegativeButton("Done", delegate { });
+                    locationDialog.Show();
 
-                locationDialog.SetMessage(Location + "." + " " + "Your location is set to" + " " + User.GetLocation());
-                locationDialog.SetNegativeButton("Done", delegate { });
-                locationDialog.Show();
+                    //set the text of the TextView, called setTo, to show the location stored in the static class user
+                    tv.Text = User.GetLocation();
 
-                tv.Text = User.GetLocation();
-};
-                Display display = this.WindowManager.DefaultDisplay;
+                    // change all notifications in the AWS DDB for the device user to not active
+                    foreach (notificationsDDB notification in notificationsList.getNotificationsList())
+                    {
+                        notificationsList.addNotificagtionToDDB(notification.id, notification.lost, notification.searcher, "false");
+                        notificationsList.updateNotification(notification.id);
+                    }
+                }
+                else
+                {
+                    locationDialog.SetMessage("Your location is set to" + " " + User.GetLocation() + "." + " " + "The string entered is null or empty.");
+                    locationDialog.SetNegativeButton("Done", delegate { });
+                    locationDialog.Show();
+                }
+            };
+            Display display = this.WindowManager.DefaultDisplay;
             
             var point = new Point();
             display.GetSize(point);
