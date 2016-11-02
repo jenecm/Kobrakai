@@ -87,6 +87,7 @@ namespace Glados.Droid.Views
                     Url = stone.Url
                 });
             }
+
         }
 
         protected override void OnStop()
