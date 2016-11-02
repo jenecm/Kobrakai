@@ -17,12 +17,23 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/toolbar">
-        <SearchView
-            android:minWidth="25px"
-            android:minHeight="25px"
+        <TextView
+            android:text="@string/user_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/searchView1" />
+            android:id="@+id/userSearch"
+            android:layout_margin="5dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editSearch"
+            android:layout_margin="5dp" />
+        <Button
+            android:text="@string/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchButton"
+            android:layout_margin="2dp" />
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"

@@ -156,7 +156,7 @@ namespace Glados.Droid
             var locationDialog = new AlertDialog.Builder(this);
             
             actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
-            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, locationID.getLocationsList());
+            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, locationsID.getLocationsList());
 
             actv.Adapter = adapterTwo;
 
@@ -164,7 +164,7 @@ namespace Glados.Droid
             {
                 Location = e.Position;
 
-                User.SetLocation(locationID.getLocationsList()[Location]);
+                User.SetLocation(locationsID.getLocationsList()[Location]);
 
                 UpdateItem();
 
@@ -228,8 +228,7 @@ namespace Glados.Droid
         {
             string[] strMnuText =
             {
-                "Home", "Favourites", "Profile",
-                "Settings", "Log"
+                "Home", "Profile", "Log"
             };
             int[] strMnuUrl =
             {
@@ -254,31 +253,10 @@ namespace Glados.Droid
                 case "Home":
                     StartActivity(typeof(FirstView));
                     break;
-                case "Favourites":
-                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
-                    menu.Inflate(Resource.Layout.favourites);
-
-                    List<string> favourites = new List<string> { "Person1", "Person2", "Person3", "Person4", "Person5" };
-
-                    foreach (var f in favourites)
-                    {
-                        menu.Menu.Add(f);
-                    }
-
-                    menu.MenuItemClick += (s1, arg1) => {
-                        profile = new Intent(this, typeof(Profile));
-                        profile.PutExtra("User", arg1.Item.TitleFormatted);
-                        StartActivity(profile);
-                    };
-                    menu.DismissEvent += (s2, arg2) => { };
-                    menu.Show();
-                    break;
                 case "Profile":
                     profile = new Intent(this, typeof(Profile));
                     profile.PutExtra("User", "Self");
                     StartActivity(profile);
-                    break;
-                case "Settings":
                     break;
                 case "Log":
                     StartActivity(typeof(Log));

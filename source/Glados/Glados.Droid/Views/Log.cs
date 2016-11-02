@@ -103,20 +103,78 @@ namespace Glados.Droid.Views
             _menuButton = (Button)_toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
 
-            var listView = FindViewById<ListView>(Resource.Id.lvLogs);
-            var logs = new List<string> {"Person1", "Person2", "Person3", "Person4"};
-
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, logs);
-
-            listView.Adapter = adapter;
-
-
             listView = FindViewById<ListView>(Resource.Id.notifications);
             actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
 
             var locationDialog = new AlertDialog.Builder(this);
 
+            var updateLocationDialog = new AlertDialog.Builder(this);
+
             TextView tv = FindViewById<TextView>(Resource.Id.setTo);
+
+            items = new List<string>();
+
+
+            ArrayAdapter<string> ad = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+
+            listView.Adapter = ad;
+
+            ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line, locationsID.getLocationsList());
+
+            actv.Adapter = adapterTwo;
+
+            Button ignoreButton = FindViewById<Button>(Resource.Id.ignore);
+            ignoreButton.Click += (object sender, EventArgs e) =>
+            {
+                // change all notifications in the AWS DDB for this the device user to not active
+                foreach (notificationsDDB notification in notificationsList.getNotificationsList())
+                {
+
+                    notificationsList.addNotificagtionToDDB(notification.id, notification.lost, notification.searcher, "false");
+                    notificationsList.updateNotification(notification.id);
+
+                }
+
+                items.Clear();
+
+                //Show a toast where someMessage is a string ie, string someMessage = "this is a message";
+                RunOnUiThread(() => Toast.MakeText(this, "notifications ignored, you will be notified the next time someone requests your location", ToastLength.Long).Show());
+            };
+
+            Button busyButton = FindViewById<Button>(Resource.Id.busy);
+            busyButton.Click += (object sender, EventArgs e) =>
+            {
+                //use the static class user and set the location stored by this class 
+                //to the string "Busy"
+                User.SetLocation("Busy");
+
+                //update AWS DDB database to match the values stored in the static class user
+                UpdateItem();
+
+                // change all notifications in the AWS DDB for the device user to not active
+                foreach (notificationsDDB notification in notificationsList.getNotificationsList())
+                {
+                    notificationsList.addNotificagtionToDDB(notification.id, notification.lost, notification.searcher, "false");
+                    notificationsList.updateNotification(notification.id);
+                }
+
+                items.Clear();
+
+                //Show a toast where someMessage is a string ie, string someMessage = "this is a message";
+                RunOnUiThread(() => Toast.MakeText(this, "Your location has been set to Busy", ToastLength.Long).Show());
+
+                //set the text of the TextView, called setTo, to show the location stored in the static class user
+                tv.Text = User.GetLocation();
+
+            };
+
+            Button sendButton = FindViewById<Button>(Resource.Id.send);
+            sendButton.Click += delegate
+            {
+                updateLocationDialog.SetMessage("Your location is set to" + " " + User.GetLocation() + "." + " " + "Please select a new location.");
+                updateLocationDialog.SetNegativeButton("Done", delegate { });
+                updateLocationDialog.Show();
+            };
 
             tv.Text = User.GetLocation();
 
@@ -152,8 +210,7 @@ namespace Glados.Droid.Views
         {
             string[] strMnuText =
             {
-                "Home", "Favourites", "Profile",
-                "Settings", "Log"
+                "Home", "Profile", "Log"
             };
             int[] strMnuUrl =
             {
@@ -178,32 +235,10 @@ namespace Glados.Droid.Views
                 case "Home":
                     StartActivity(typeof(FirstView));
                     break;
-                case "Favourites":
-                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
-                    menu.Inflate(Resource.Layout.favourites);
-
-                    List<string> favourites = new List<string> { "Person1", "Person2", "Person3", "Person4", "Person5" };
-
-                    foreach (var f in favourites)
-                    {
-                        menu.Menu.Add(f);
-                    }
-
-                    menu.MenuItemClick += (s1, arg1) => {
-                        //Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
-                        profile = new Intent(this, typeof(Profile));
-                        profile.PutExtra("User", arg1.Item.TitleFormatted);
-                        StartActivity(profile);
-                    };
-                    menu.DismissEvent += (s2, arg2) => { };
-                    menu.Show();
-                    break;
                 case "Profile":
                     profile = new Intent(this, typeof(Profile));
                     profile.PutExtra("User", "Self");
                     StartActivity(profile);
-                    break;
-                case "Settings":
                     break;
                 case "Log":
                     StartActivity(typeof(Log));
@@ -271,8 +306,6 @@ namespace Glados.Droid.Views
 
                            );
             var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USWest2);
-            // Pass the client to the DynamoDBConte
-            DynamoDBContext context = new DynamoDBContext(client);
 
             var theUser = new Document();
 
