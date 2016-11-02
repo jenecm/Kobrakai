@@ -73,10 +73,6 @@
       <HintPath>..\packages\MvvmCross.Binding.4.2.2\lib\MonoAndroid\MvvmCross.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
-    <Reference Include="Xamarin.Estimote.Android, Version=1.0.8.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Estimote.Android.0.11.0.1\lib\MonoAndroid43\Xamarin.Estimote.Android.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
