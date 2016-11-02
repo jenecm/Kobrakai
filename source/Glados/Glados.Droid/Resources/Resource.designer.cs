@@ -2118,11 +2118,11 @@ namespace Glados.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060015
-			public const int ApplicationName = 2131099669;
+			// aapt resource value: 0x7f06001e
+			public const int ApplicationName = 2131099678;
 			
-			// aapt resource value: 0x7f060014
-			public const int Hello = 2131099668;
+			// aapt resource value: 0x7f06001d
+			public const int Hello = 2131099677;
 			
 			// aapt resource value: 0x7f060000
 			public const int abc_action_bar_home_description = 2131099648;
@@ -2181,83 +2181,110 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f060012
 			public const int abc_toolbar_collapse_description = 2131099666;
 			
-			// aapt resource value: 0x7f06001a
-			public const int app_name = 2131099674;
+			// aapt resource value: 0x7f060023
+			public const int app_name = 2131099683;
 			
-			// aapt resource value: 0x7f060027
-			public const int back_button = 2131099687;
+			// aapt resource value: 0x7f060030
+			public const int back_button = 2131099696;
 			
-			// aapt resource value: 0x7f060029
-			public const int busy_button = 2131099689;
-			
-			// aapt resource value: 0x7f060017
-			public const int checkin_button = 2131099671;
-			
-			// aapt resource value: 0x7f06002b
-			public const int ignore_button = 2131099691;
-			
-			// aapt resource value: 0x7f060016
-			public const int location = 2131099670;
-			
-			// aapt resource value: 0x7f060018
-			public const int log_button = 2131099672;
-			
-			// aapt resource value: 0x7f060019
-			public const int map_button = 2131099673;
-			
-			// aapt resource value: 0x7f06001c
-			public const int notSet = 2131099676;
+			// aapt resource value: 0x7f060032
+			public const int busy_button = 2131099698;
 			
 			// aapt resource value: 0x7f060020
-			public const int position = 2131099680;
+			public const int checkin_button = 2131099680;
 			
-			// aapt resource value: 0x7f060026
-			public const int requestLocation_button = 2131099686;
+			// aapt resource value: 0x7f060014
+			public const int error_no_bluetooth_enabled = 2131099668;
 			
-			// aapt resource value: 0x7f060022
-			public const int searchUser_location = 2131099682;
+			// aapt resource value: 0x7f060015
+			public const int error_no_bluetooth_le = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int error_no_location_permission = 2131099670;
+			
+			// aapt resource value: 0x7f060034
+			public const int ignore_button = 2131099700;
+			
+			// aapt resource value: 0x7f06001f
+			public const int location = 2131099679;
 			
 			// aapt resource value: 0x7f060021
-			public const int searchUser_position = 2131099681;
+			public const int log_button = 2131099681;
 			
-			// aapt resource value: 0x7f06002d
-			public const int search_button = 2131099693;
+			// aapt resource value: 0x7f060022
+			public const int map_button = 2131099682;
+			
+			// aapt resource value: 0x7f060025
+			public const int notSet = 2131099685;
+			
+			// aapt resource value: 0x7f060029
+			public const int position = 2131099689;
+			
+			// aapt resource value: 0x7f06002f
+			public const int requestLocation_button = 2131099695;
+			
+			// aapt resource value: 0x7f060017
+			public const int requesting_location_access = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int requesting_location_access_cancel = 2131099672;
+			
+			// aapt resource value: 0x7f060019
+			public const int requesting_location_access_ok = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int requesting_location_access_rationale = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int requesting_location_permission = 2131099675;
+			
+			// aapt resource value: 0x7f06001c
+			public const int requesting_location_permission_rationale = 2131099676;
+			
+			// aapt resource value: 0x7f06002b
+			public const int searchUser_location = 2131099691;
 			
 			// aapt resource value: 0x7f06002a
-			public const int send_button = 2131099690;
+			public const int searchUser_position = 2131099690;
+			
+			// aapt resource value: 0x7f060036
+			public const int search_button = 2131099702;
+			
+			// aapt resource value: 0x7f060033
+			public const int send_button = 2131099699;
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;
 			
-			// aapt resource value: 0x7f06002c
-			public const int toolbar = 2131099692;
+			// aapt resource value: 0x7f060035
+			public const int toolbar = 2131099701;
+			
+			// aapt resource value: 0x7f060031
+			public const int update_button = 2131099697;
 			
 			// aapt resource value: 0x7f060028
-			public const int update_button = 2131099688;
-			
-			// aapt resource value: 0x7f06001f
-			public const int userCurrentPosition = 2131099679;
-			
-			// aapt resource value: 0x7f060025
-			public const int userLocation = 2131099685;
-			
-			// aapt resource value: 0x7f06001d
-			public const int userName = 2131099677;
-			
-			// aapt resource value: 0x7f06001e
-			public const int userPosition = 2131099678;
-			
-			// aapt resource value: 0x7f060024
-			public const int user_location = 2131099684;
-			
-			// aapt resource value: 0x7f060023
-			public const int user_position = 2131099683;
+			public const int userCurrentPosition = 2131099688;
 			
 			// aapt resource value: 0x7f06002e
-			public const int user_search = 2131099694;
+			public const int userLocation = 2131099694;
 			
-			// aapt resource value: 0x7f06001b
-			public const int your_room = 2131099675;
+			// aapt resource value: 0x7f060026
+			public const int userName = 2131099686;
+			
+			// aapt resource value: 0x7f060027
+			public const int userPosition = 2131099687;
+			
+			// aapt resource value: 0x7f06002d
+			public const int user_location = 2131099693;
+			
+			// aapt resource value: 0x7f06002c
+			public const int user_position = 2131099692;
+			
+			// aapt resource value: 0x7f060037
+			public const int user_search = 2131099703;
+			
+			// aapt resource value: 0x7f060024
+			public const int your_room = 2131099684;
 			
 			static String()
 			{
@@ -2272,35 +2299,35 @@ namespace Glados.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f09007b
-			public const int AlertDialog_AppCompat = 2131296379;
-			
-			// aapt resource value: 0x7f09007c
-			public const int AlertDialog_AppCompat_Light = 2131296380;
-			
 			// aapt resource value: 0x7f09007d
-			public const int Animation_AppCompat_Dialog = 2131296381;
+			public const int AlertDialog_AppCompat = 2131296381;
 			
 			// aapt resource value: 0x7f09007e
-			public const int Animation_AppCompat_DropDownUp = 2131296382;
+			public const int AlertDialog_AppCompat_Light = 2131296382;
 			
 			// aapt resource value: 0x7f09007f
-			public const int Base_AlertDialog_AppCompat = 2131296383;
+			public const int Animation_AppCompat_Dialog = 2131296383;
 			
 			// aapt resource value: 0x7f090080
-			public const int Base_AlertDialog_AppCompat_Light = 2131296384;
+			public const int Animation_AppCompat_DropDownUp = 2131296384;
 			
 			// aapt resource value: 0x7f090081
-			public const int Base_Animation_AppCompat_Dialog = 2131296385;
+			public const int Base_AlertDialog_AppCompat = 2131296385;
 			
 			// aapt resource value: 0x7f090082
-			public const int Base_Animation_AppCompat_DropDownUp = 2131296386;
+			public const int Base_AlertDialog_AppCompat_Light = 2131296386;
 			
 			// aapt resource value: 0x7f090083
-			public const int Base_DialogWindowTitle_AppCompat = 2131296387;
+			public const int Base_Animation_AppCompat_Dialog = 2131296387;
 			
 			// aapt resource value: 0x7f090084
-			public const int Base_DialogWindowTitleBackground_AppCompat = 2131296388;
+			public const int Base_Animation_AppCompat_DropDownUp = 2131296388;
+			
+			// aapt resource value: 0x7f090085
+			public const int Base_DialogWindowTitle_AppCompat = 2131296389;
+			
+			// aapt resource value: 0x7f090086
+			public const int Base_DialogWindowTitleBackground_AppCompat = 2131296390;
 			
 			// aapt resource value: 0x7f09002f
 			public const int Base_TextAppearance_AppCompat = 2131296303;
@@ -2356,8 +2383,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f09003c
 			public const int Base_TextAppearance_AppCompat_Menu = 2131296316;
 			
-			// aapt resource value: 0x7f090085
-			public const int Base_TextAppearance_AppCompat_SearchResult = 2131296389;
+			// aapt resource value: 0x7f090087
+			public const int Base_TextAppearance_AppCompat_SearchResult = 2131296391;
 			
 			// aapt resource value: 0x7f09003d
 			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131296317;
@@ -2407,11 +2434,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090049
 			public const int Base_TextAppearance_AppCompat_Widget_Button = 2131296329;
 			
-			// aapt resource value: 0x7f090086
-			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131296390;
+			// aapt resource value: 0x7f090079
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131296377;
 			
-			// aapt resource value: 0x7f090087
-			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131296391;
+			// aapt resource value: 0x7f090088
+			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131296392;
 			
 			// aapt resource value: 0x7f09004a
 			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131296330;
@@ -2425,8 +2452,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f09004d
 			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131296333;
 			
-			// aapt resource value: 0x7f090088
-			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131296392;
+			// aapt resource value: 0x7f090089
+			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131296393;
 			
 			// aapt resource value: 0x7f09004e
 			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131296334;
@@ -2437,20 +2464,20 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090050
 			public const int Base_Theme_AppCompat = 2131296336;
 			
-			// aapt resource value: 0x7f090089
-			public const int Base_Theme_AppCompat_CompactMenu = 2131296393;
+			// aapt resource value: 0x7f09008a
+			public const int Base_Theme_AppCompat_CompactMenu = 2131296394;
 			
 			// aapt resource value: 0x7f09000a
 			public const int Base_Theme_AppCompat_Dialog = 2131296266;
 			
-			// aapt resource value: 0x7f09008a
-			public const int Base_Theme_AppCompat_Dialog_Alert = 2131296394;
-			
 			// aapt resource value: 0x7f09008b
-			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131296395;
+			public const int Base_Theme_AppCompat_Dialog_Alert = 2131296395;
 			
 			// aapt resource value: 0x7f09008c
-			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131296396;
+			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131296396;
+			
+			// aapt resource value: 0x7f09008d
+			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131296397;
 			
 			// aapt resource value: 0x7f090001
 			public const int Base_Theme_AppCompat_DialogWhenLarge = 2131296257;
@@ -2458,38 +2485,38 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090051
 			public const int Base_Theme_AppCompat_Light = 2131296337;
 			
-			// aapt resource value: 0x7f09008d
-			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131296397;
+			// aapt resource value: 0x7f09008e
+			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131296398;
 			
 			// aapt resource value: 0x7f09000b
 			public const int Base_Theme_AppCompat_Light_Dialog = 2131296267;
 			
-			// aapt resource value: 0x7f09008e
-			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131296398;
-			
 			// aapt resource value: 0x7f09008f
-			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131296399;
+			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131296399;
 			
 			// aapt resource value: 0x7f090090
-			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131296400;
+			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131296400;
+			
+			// aapt resource value: 0x7f090091
+			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131296401;
 			
 			// aapt resource value: 0x7f090002
 			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131296258;
 			
-			// aapt resource value: 0x7f090091
-			public const int Base_ThemeOverlay_AppCompat = 2131296401;
-			
 			// aapt resource value: 0x7f090092
-			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131296402;
+			public const int Base_ThemeOverlay_AppCompat = 2131296402;
 			
 			// aapt resource value: 0x7f090093
-			public const int Base_ThemeOverlay_AppCompat_Dark = 2131296403;
+			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131296403;
 			
 			// aapt resource value: 0x7f090094
-			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131296404;
+			public const int Base_ThemeOverlay_AppCompat_Dark = 2131296404;
 			
 			// aapt resource value: 0x7f090095
-			public const int Base_ThemeOverlay_AppCompat_Light = 2131296405;
+			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131296405;
+			
+			// aapt resource value: 0x7f090096
+			public const int Base_ThemeOverlay_AppCompat_Light = 2131296406;
 			
 			// aapt resource value: 0x7f09000c
 			public const int Base_V11_Theme_AppCompat_Dialog = 2131296268;
@@ -2521,38 +2548,38 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090078
 			public const int Base_V22_Theme_AppCompat_Light = 2131296376;
 			
-			// aapt resource value: 0x7f090079
-			public const int Base_V23_Theme_AppCompat = 2131296377;
-			
 			// aapt resource value: 0x7f09007a
-			public const int Base_V23_Theme_AppCompat_Light = 2131296378;
+			public const int Base_V23_Theme_AppCompat = 2131296378;
 			
-			// aapt resource value: 0x7f090096
-			public const int Base_V7_Theme_AppCompat = 2131296406;
+			// aapt resource value: 0x7f09007b
+			public const int Base_V23_Theme_AppCompat_Light = 2131296379;
 			
 			// aapt resource value: 0x7f090097
-			public const int Base_V7_Theme_AppCompat_Dialog = 2131296407;
+			public const int Base_V7_Theme_AppCompat = 2131296407;
 			
 			// aapt resource value: 0x7f090098
-			public const int Base_V7_Theme_AppCompat_Light = 2131296408;
+			public const int Base_V7_Theme_AppCompat_Dialog = 2131296408;
 			
 			// aapt resource value: 0x7f090099
-			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131296409;
+			public const int Base_V7_Theme_AppCompat_Light = 2131296409;
 			
 			// aapt resource value: 0x7f09009a
-			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131296410;
+			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131296410;
 			
 			// aapt resource value: 0x7f09009b
-			public const int Base_V7_Widget_AppCompat_EditText = 2131296411;
+			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131296411;
 			
 			// aapt resource value: 0x7f09009c
-			public const int Base_Widget_AppCompat_ActionBar = 2131296412;
+			public const int Base_V7_Widget_AppCompat_EditText = 2131296412;
 			
 			// aapt resource value: 0x7f09009d
-			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131296413;
+			public const int Base_Widget_AppCompat_ActionBar = 2131296413;
 			
 			// aapt resource value: 0x7f09009e
-			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131296414;
+			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131296414;
+			
+			// aapt resource value: 0x7f09009f
+			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131296415;
 			
 			// aapt resource value: 0x7f090056
 			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131296342;
@@ -2569,11 +2596,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f09005a
 			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131296346;
 			
-			// aapt resource value: 0x7f09009f
-			public const int Base_Widget_AppCompat_ActionMode = 2131296415;
-			
 			// aapt resource value: 0x7f0900a0
-			public const int Base_Widget_AppCompat_ActivityChooserView = 2131296416;
+			public const int Base_Widget_AppCompat_ActionMode = 2131296416;
+			
+			// aapt resource value: 0x7f0900a1
+			public const int Base_Widget_AppCompat_ActivityChooserView = 2131296417;
 			
 			// aapt resource value: 0x7f090017
 			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131296279;
@@ -2587,11 +2614,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f09005d
 			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131296349;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131296417;
-			
 			// aapt resource value: 0x7f0900a2
-			public const int Base_Widget_AppCompat_Button_Colored = 2131296418;
+			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131296418;
+			
+			// aapt resource value: 0x7f09007c
+			public const int Base_Widget_AppCompat_Button_Colored = 2131296380;
 			
 			// aapt resource value: 0x7f09005e
 			public const int Base_Widget_AppCompat_Button_Small = 2131296350;
@@ -2704,8 +2731,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090073
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296371;
 			
-			// aapt resource value: 0x7f090134
-			public const int MyCustomTheme = 2131296564;
+			// aapt resource value: 0x7f090135
+			public const int MyCustomTheme = 2131296565;
 			
 			// aapt resource value: 0x7f090010
 			public const int Platform_AppCompat = 2131296272;
@@ -2977,8 +3004,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0900e9
 			public const int Theme_AppCompat_NoActionBar = 2131296489;
 			
+			// aapt resource value: 0x7f090134
+			public const int Theme_Splash = 2131296564;
+			
 			// aapt resource value: 0x7f090133
-			public const int Theme_Splash = 2131296563;
+			public const int Theme_Transparent = 2131296563;
 			
 			// aapt resource value: 0x7f0900ea
 			public const int ThemeOverlay_AppCompat = 2131296490;
