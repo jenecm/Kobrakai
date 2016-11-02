@@ -17,6 +17,7 @@ using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using Glados.Core.Helpers;
+using Glados.Droid;
 using MvvmCross.Droid.Views;
 
 namespace Glados.Droid.Views
@@ -317,6 +318,52 @@ namespace Glados.Droid.Views
             Table users = Table.LoadTable(client, "kobrakaiUsers");
 
             Document updatedUser = await users.UpdateItemAsync(theUser);
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            //create a variable and assign it to the TextView called aToolBar that shows the users nam
+            TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
+            //set the text of the TextView, called aToolBar, to show the name stored in the static class user
+            toolBarText.Text = User.GetName();
+            toolBarText.Touch += delegate
+            {
+                StartActivity(typeof(Profile));
+            };
+
+            users.setUsersList();
+            locationsID.getListFromDDB();
+
+            notificationsList.setNotificationsList();
+
+            var locationRequestDialog = new AlertDialog.Builder(this);
+
+            string provideLocation = "true";
+
+            items = new List<string>();
+            foreach (notificationsDDB tha_notification in notificationsList.getNotificationsList())
+            {
+                if (tha_notification.active.Equals("true"))
+                {
+                    items.Add((users.getUser(tha_notification.searcher)).name + " " + "requested your location");
+                }
+            }
+
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+
+            listView.Adapter = adapter;
+
+            foreach (notificationsDDB the_notification in notificationsList.getNotificationsList())
+            {
+                if (the_notification.active.Equals(provideLocation))
+                {
+                    locationRequestDialog.SetMessage("Location request received from " + users.getUser(the_notification.searcher).name);
+                    locationRequestDialog.SetNegativeButton("Done", delegate { });
+                    locationRequestDialog.Show();
+                }
+            }
         }
     }
 

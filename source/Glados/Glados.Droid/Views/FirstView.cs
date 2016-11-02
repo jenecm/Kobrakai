@@ -326,10 +326,30 @@ namespace Glados.Droid.Views
         {
             base.OnResume();
 
+            //create a variable and assign it to the TextView called aToolBar that shows the users nam
+            TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
+            //set the text of the TextView, called aToolBar, to show the name stored in the static class user
+            toolBarText.Text = User.GetName();
 
-            _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
-            var toolText = (TextView)_toolbar.GetChildAt(1);
-            toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
+            users.setUsersList();
+
+            locationsID.getListFromDDB();
+
+            notificationsList.setNotificationsList();
+
+            var locationRequestDialog = new AlertDialog.Builder(this);
+
+            string provideLocation = "true";
+
+            foreach (notificationsDDB the_notification in notificationsList.getNotificationsList())
+            {
+                if (the_notification.active.Equals(provideLocation))
+                {
+                    locationRequestDialog.SetMessage("Location request received from " + users.getUser(the_notification.searcher).name);
+                    locationRequestDialog.SetNegativeButton("Done", delegate { });
+                    locationRequestDialog.Show();
+                }
+            }
 
         }
     }

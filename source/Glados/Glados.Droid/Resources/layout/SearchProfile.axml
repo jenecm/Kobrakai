@@ -31,11 +31,6 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:id="@+id/linearLayout1">
-            <Button
-                android:text="@string/back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button1" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"

@@ -1505,8 +1505,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c000a
 			public const int MvxBindingTagUnique = 2131492874;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int aToolBar = 2131493000;
+			// aapt resource value: 0x7f0c0087
+			public const int aToolBar = 2131492999;
 			
 			// aapt resource value: 0x7f0c0068
 			public const int action0 = 2131492968;
@@ -1565,14 +1565,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c001a
 			public const int beginning = 2131492890;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int btnHamburger = 2131492999;
+			// aapt resource value: 0x7f0c0086
+			public const int btnHamburger = 2131492998;
 			
 			// aapt resource value: 0x7f0c0062
 			public const int busy = 2131492962;
-			
-			// aapt resource value: 0x7f0c0081
-			public const int button1 = 2131492993;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int buttonPanel = 2131492909;
@@ -1748,8 +1745,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int radio = 2131492925;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int requestLocation = 2131492998;
+			// aapt resource value: 0x7f0c0085
+			public const int requestLocation = 2131492997;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int room = 2131492957;
@@ -1769,11 +1766,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0056
 			public const int searchButton = 2131492950;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int searchUserLocation = 2131492996;
+			// aapt resource value: 0x7f0c0083
+			public const int searchUserLocation = 2131492995;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int searchUserPosition = 2131492994;
+			// aapt resource value: 0x7f0c0081
+			public const int searchUserPosition = 2131492993;
 			
 			// aapt resource value: 0x7f0c0077
 			public const int searchView1 = 2131492983;
@@ -1895,11 +1892,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0c0014
 			public const int useLogo = 2131492884;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int userLocation = 2131492997;
+			// aapt resource value: 0x7f0c0084
+			public const int userLocation = 2131492996;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int userPosition = 2131492995;
+			// aapt resource value: 0x7f0c0082
+			public const int userPosition = 2131492994;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int userSearch = 2131492948;
@@ -2118,11 +2115,11 @@ namespace Glados.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060015
-			public const int ApplicationName = 2131099669;
+			// aapt resource value: 0x7f06001e
+			public const int ApplicationName = 2131099678;
 			
-			// aapt resource value: 0x7f060014
-			public const int Hello = 2131099668;
+			// aapt resource value: 0x7f06001d
+			public const int Hello = 2131099677;
 			
 			// aapt resource value: 0x7f060000
 			public const int abc_action_bar_home_description = 2131099648;
@@ -2181,83 +2178,110 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f060012
 			public const int abc_toolbar_collapse_description = 2131099666;
 			
-			// aapt resource value: 0x7f06001a
-			public const int app_name = 2131099674;
+			// aapt resource value: 0x7f060023
+			public const int app_name = 2131099683;
 			
-			// aapt resource value: 0x7f060027
-			public const int back_button = 2131099687;
+			// aapt resource value: 0x7f060030
+			public const int back_button = 2131099696;
 			
-			// aapt resource value: 0x7f060029
-			public const int busy_button = 2131099689;
-			
-			// aapt resource value: 0x7f060017
-			public const int checkin_button = 2131099671;
-			
-			// aapt resource value: 0x7f06002b
-			public const int ignore_button = 2131099691;
-			
-			// aapt resource value: 0x7f060016
-			public const int location = 2131099670;
-			
-			// aapt resource value: 0x7f060018
-			public const int log_button = 2131099672;
-			
-			// aapt resource value: 0x7f060019
-			public const int map_button = 2131099673;
-			
-			// aapt resource value: 0x7f06001c
-			public const int notSet = 2131099676;
+			// aapt resource value: 0x7f060032
+			public const int busy_button = 2131099698;
 			
 			// aapt resource value: 0x7f060020
-			public const int position = 2131099680;
+			public const int checkin_button = 2131099680;
 			
-			// aapt resource value: 0x7f060026
-			public const int requestLocation_button = 2131099686;
+			// aapt resource value: 0x7f060014
+			public const int error_no_bluetooth_enabled = 2131099668;
 			
-			// aapt resource value: 0x7f060022
-			public const int searchUser_location = 2131099682;
+			// aapt resource value: 0x7f060015
+			public const int error_no_bluetooth_le = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int error_no_location_permission = 2131099670;
+			
+			// aapt resource value: 0x7f060034
+			public const int ignore_button = 2131099700;
+			
+			// aapt resource value: 0x7f06001f
+			public const int location = 2131099679;
 			
 			// aapt resource value: 0x7f060021
-			public const int searchUser_position = 2131099681;
+			public const int log_button = 2131099681;
 			
-			// aapt resource value: 0x7f06002d
-			public const int search_button = 2131099693;
+			// aapt resource value: 0x7f060022
+			public const int map_button = 2131099682;
+			
+			// aapt resource value: 0x7f060025
+			public const int notSet = 2131099685;
+			
+			// aapt resource value: 0x7f060029
+			public const int position = 2131099689;
+			
+			// aapt resource value: 0x7f06002f
+			public const int requestLocation_button = 2131099695;
+			
+			// aapt resource value: 0x7f060017
+			public const int requesting_location_access = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int requesting_location_access_cancel = 2131099672;
+			
+			// aapt resource value: 0x7f060019
+			public const int requesting_location_access_ok = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int requesting_location_access_rationale = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int requesting_location_permission = 2131099675;
+			
+			// aapt resource value: 0x7f06001c
+			public const int requesting_location_permission_rationale = 2131099676;
+			
+			// aapt resource value: 0x7f06002b
+			public const int searchUser_location = 2131099691;
 			
 			// aapt resource value: 0x7f06002a
-			public const int send_button = 2131099690;
+			public const int searchUser_position = 2131099690;
+			
+			// aapt resource value: 0x7f060036
+			public const int search_button = 2131099702;
+			
+			// aapt resource value: 0x7f060033
+			public const int send_button = 2131099699;
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;
 			
-			// aapt resource value: 0x7f06002c
-			public const int toolbar = 2131099692;
+			// aapt resource value: 0x7f060035
+			public const int toolbar = 2131099701;
+			
+			// aapt resource value: 0x7f060031
+			public const int update_button = 2131099697;
 			
 			// aapt resource value: 0x7f060028
-			public const int update_button = 2131099688;
-			
-			// aapt resource value: 0x7f06001f
-			public const int userCurrentPosition = 2131099679;
-			
-			// aapt resource value: 0x7f060025
-			public const int userLocation = 2131099685;
-			
-			// aapt resource value: 0x7f06001d
-			public const int userName = 2131099677;
-			
-			// aapt resource value: 0x7f06001e
-			public const int userPosition = 2131099678;
-			
-			// aapt resource value: 0x7f060024
-			public const int user_location = 2131099684;
-			
-			// aapt resource value: 0x7f060023
-			public const int user_position = 2131099683;
+			public const int userCurrentPosition = 2131099688;
 			
 			// aapt resource value: 0x7f06002e
-			public const int user_search = 2131099694;
+			public const int userLocation = 2131099694;
 			
-			// aapt resource value: 0x7f06001b
-			public const int your_room = 2131099675;
+			// aapt resource value: 0x7f060026
+			public const int userName = 2131099686;
+			
+			// aapt resource value: 0x7f060027
+			public const int userPosition = 2131099687;
+			
+			// aapt resource value: 0x7f06002d
+			public const int user_location = 2131099693;
+			
+			// aapt resource value: 0x7f06002c
+			public const int user_position = 2131099692;
+			
+			// aapt resource value: 0x7f060037
+			public const int user_search = 2131099703;
+			
+			// aapt resource value: 0x7f060024
+			public const int your_room = 2131099684;
 			
 			static String()
 			{
@@ -2704,8 +2728,8 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f090073
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296371;
 			
-			// aapt resource value: 0x7f090134
-			public const int MyCustomTheme = 2131296564;
+			// aapt resource value: 0x7f090135
+			public const int MyCustomTheme = 2131296565;
 			
 			// aapt resource value: 0x7f090010
 			public const int Platform_AppCompat = 2131296272;
@@ -2977,8 +3001,11 @@ namespace Glados.Droid
 			// aapt resource value: 0x7f0900e9
 			public const int Theme_AppCompat_NoActionBar = 2131296489;
 			
+			// aapt resource value: 0x7f090134
+			public const int Theme_Splash = 2131296564;
+			
 			// aapt resource value: 0x7f090133
-			public const int Theme_Splash = 2131296563;
+			public const int Theme_Transparent = 2131296563;
 			
 			// aapt resource value: 0x7f0900ea
 			public const int ThemeOverlay_AppCompat = 2131296490;

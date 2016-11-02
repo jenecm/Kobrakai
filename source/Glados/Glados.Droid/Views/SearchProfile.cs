@@ -44,17 +44,31 @@ namespace Glados.Droid.Views
             TapEvent();
             FnBindMenu();
 
+            var requestDialog = new AlertDialog.Builder(this);
+
             TextView user_position = FindViewById<TextView>(Resource.Id.userPosition);
 			TextView user_location = FindViewById<TextView>(Resource.Id.userLocation);
 
 			user_position.Text = searedProfile.getPosition();
 			user_location.Text = searedProfile.getLocation();
 
-			//create a variable and assign it to the TextView called aToolBar that shows the users nam
-			TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
 			//set the text of the TextView, called aToolBar, to show the name stored in the static class user
-			toolBarText.Text = searedProfile.getName();
-		}
+			_toolText.Text = searedProfile.getName();
+
+            string lost_id = searedProfile.getID();
+            string searcher_id = User.GetId();
+            string request_id = lost_id + searcher_id;
+
+            Button request_button = FindViewById<Button>(Resource.Id.requestLocation);
+            request_button.Click += delegate
+            {
+                notificationsList.addNotificagtionToDDB(request_id, lost_id, searcher_id, "true");
+
+                requestDialog.SetMessage("Request Sent");
+                requestDialog.SetNegativeButton("Done", delegate { });
+                requestDialog.Show();
+            };
+        }
 
         private void TapEvent()
         {
@@ -110,37 +124,6 @@ namespace Glados.Droid.Views
             }
         }
 
-        private void SetProfileText(string username)
-        {
-            //   var toolText = (TextView)_toolbar.GetChildAt(1);
-            //   var jobTitle = FindViewById<TextView>(Resource.Id.txtJobTitle);
-            //   var bio = FindViewById<TextView>(Resource.Id.txtBio);
-            //if (username == "Self")
-            //{
-            //    toolText.Text = StorageHelper.GetValue("Name");
-            //       jobTitle.Text = StorageHelper.GetValue("Job");
-            //       bio.Text = StorageHelper.GetValue("Bio");
-
-            //       FindViewById(Resource.Id.btnRequestLocation).Visibility = ViewStates.Gone;
-            //}
-            //   else if (username == "Error")
-            //   {
-            //       StartActivity(typeof(FirstView));
-            //   }
-            //else
-            //{
-            //       //Get Data from username
-            //    toolText.Text = username;
-            //    jobTitle.Text = username + " Job Title";
-            //    bio.Text = username + " Bio";
-
-            //    FindViewById(Resource.Id.lblLocation).Visibility = ViewStates.Gone;
-            //    FindViewById(Resource.Id.txtLocation).Visibility = ViewStates.Gone;
-            //   }
-
-
-
-        }
 
         private void FnBindMenu()
         {
@@ -232,6 +215,28 @@ namespace Glados.Droid.Views
                 //starting edge of layout 
                 _menuListView.Animation.Duration = 300;
             }
+        }
+
+        public async Task UpdateItem()
+        {
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+                               "us-west-2:d17455cb-c093-403a-a797-d8b01906f7b2", // Identity Pool 
+
+                               RegionEndpoint.USWest2 // Regio
+
+                           );
+            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USWest2);
+
+            var theUser = new Document();
+
+            theUser["id"] = searedProfile.getID();
+            theUser["location"] = searedProfile.getLocation();
+            theUser["name"] = searedProfile.getName();
+            theUser["position"] = searedProfile.getPosition();
+
+            Table users = Table.LoadTable(client, "kobrakaiUsers");
+
+            Document updatedUser = await users.UpdateItemAsync(theUser);
         }
     }
 
