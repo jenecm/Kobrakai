@@ -9,68 +9,38 @@
     <include
         android:id="@+id/headerbar"
         layout="@layout/headerbar" />
+  <ListView
+      android:id="@+id/menuListView"
+      android:layout_below="@+id/titleBarLinearLayout"
+      android:background="#ff64bbf8"
+      android:divider="#CFEBFF"
+      android:dividerHeight="1dp"
+      android:layout_marginLeft="0dp"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:visibility="gone" />
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
+  
+  
     <TextView
         android:text="These people wanted to know where you are:"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:id="@+id/txtSubtitle"
         android:textColor="@android:color/background_dark"
-        android:layout_width="1000px"
-        android:layout_height="200px"
-        android:layout_marginTop="10px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="100px"
-        android:textSize="64px" />
-    <TextView
-        android:text="Person1"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/txtSubtitle"
-        android:textColor="@android:color/background_dark"
-        android:layout_width="1000px"
-        android:layout_height="100px"
-        android:layout_gravity="center"
-        android:layout_marginLeft="100px"
-        android:textSize="64px" />
-    <TextView
-        android:text="Person2"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/txtSubtitle"
-        android:textColor="@android:color/background_dark"
-        android:layout_width="1000px"
-        android:layout_height="100px"
-        android:layout_gravity="center"
-        android:layout_marginLeft="100px"
-        android:textSize="64px" />
-    <TextView
-        android:text="Person3"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/txtSubtitle"
-        android:textColor="@android:color/background_dark"
-        android:layout_width="1000px"
-        android:layout_height="100px"
-        android:layout_gravity="center"
-        android:layout_marginLeft="100px"
-        android:textSize="64px" />
-    <TextView
-        android:text="Person4"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/txtSubtitle"
-        android:textColor="@android:color/background_dark"
-        android:layout_width="1000px"
-        android:layout_height="100px"
-        android:layout_gravity="center"
-        android:layout_marginLeft="100px"
-        android:textSize="64px" />
+        android:gravity="center"
+        android:textSize="20dp" />
+  <ListView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/lvLogs" />
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/gridLayout2"
         android:columnCount="3"
         android:layout_gravity="center"
@@ -78,27 +48,23 @@
         <Button
             android:text="Busy"
             android:id="@+id/button2"
-            android:layout_marginLeft="250.0dp" />
+            android:layout_column="0" />
         <Button
             android:text="Send"
             android:id="@+id/button4"
-            android:layout_marginLeft="25.0dp"
-            android:layout_marginRight="25dp" />
+            android:layout_column="1" />
         <Button
             android:text="Ignore"
-            android:id="@+id/button3" />
+            android:id="@+id/button3"
+            android:layout_column="2" />
     </GridLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:id="@+id/linearLayout2"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="#19557D">
         <GridLayout
-            android:minWidth="25px"
-            android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/gridLayout1"
@@ -133,4 +99,28 @@
                 android:layout_marginBottom="5dp" />
         </GridLayout>
     </LinearLayout>
+  <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical"
+            android:layout_margin="20dip">
+    <TextView
+        android:text="@string/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myLocation" />
+    <TextView
+        android:text="@string/notSet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setTo" />
+    <AutoCompleteTextView
+        android:hint="@string/your_room"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/room" />
+  </LinearLayout>
+  
 </LinearLayout>
