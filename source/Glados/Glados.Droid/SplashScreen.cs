@@ -1,3 +1,4 @@
+
 using Android.App;
 using Android.Content.PM;
 using MvvmCross.Droid.Views;
@@ -16,6 +17,9 @@ namespace Glados.Droid
         public SplashScreen()
             : base(Resource.Layout.SplashScreen)
         {
+            users.setUsersList();
+            locationsID.getListFromDDB();
+            notificationsList.setNotificationsList();
         }
     }
 }

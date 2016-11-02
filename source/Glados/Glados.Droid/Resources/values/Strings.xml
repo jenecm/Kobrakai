@@ -30,4 +30,6 @@
   <string name="app_name">Glados</string>
   <string name="your_room">Select new location</string>
   <string name="toolbar">Glados</string>
+  <string name="search_button">Search</string>
+  <string name="user_search">Search for a person:</string>
 </resources>

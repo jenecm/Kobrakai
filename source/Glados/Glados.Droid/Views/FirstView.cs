@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Android.App;
 using Android.OS;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ using Amazon.CognitoIdentity;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
+using MvvmCross.Binding.ExtensionMethods;
 
 namespace Glados.Droid.Views
 {
@@ -40,6 +42,10 @@ namespace Glados.Droid.Views
         private List<string> _items;
         private List<string> _rooms;
 
+        private EditText searchView;
+        private List<usersDDB> searchedItems;
+        private string searched;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -50,7 +56,7 @@ namespace Glados.Droid.Views
 
             var locationDialog = new AlertDialog.Builder(this);
 
-            locationID.getListFromDDB();
+            locationsID.getListFromDDB();
 
             // set the id of the user to the saved one on the device or create a new id and save it to the device
             SaveId.Saveid();
@@ -58,9 +64,6 @@ namespace Glados.Droid.Views
             // search the AWS DDB database for the user information associated with the id saved on the device
             // and update any fields in the user class that need to be updated from the AWS DDB
             GetUserFromDdb(User.GetId());
-
-            StorageHelper.StoreValue("Job", "University Student");
-            StorageHelper.StoreValue("Bio", "Is a person. Hates this subject.");
 
             FnInitialization();
             TapEvent();
@@ -112,20 +115,49 @@ namespace Glados.Droid.Views
 
             _listView = FindViewById<ListView>(Resource.Id.notifications);
 
-            _items = new List<string>();
-            _items.Add("Dan requested your location");
-            _items.Add("Jan is at D101");
-            _items.Add("Bob is not available");
 
-            _rooms = new List<string>();
-            _rooms.Add("F101");
-            _rooms.Add("F102");
-            _rooms.Add("F103");
+            Button searchButton = FindViewById<Button>(Resource.Id.searchButton);
+            searchView = FindViewById<EditText>(Resource.Id.editSearch);
+            searchButton.Click += (object sender, EventArgs e) =>
+            {
+                searched = searchView.Text;
+                List<string> user_s = new List<string>();
 
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1,
-                _items);
+                if (!string.IsNullOrEmpty(searched))
+                {
+                    var aList = users.getUsersByName(searched);
 
-            _listView.Adapter = adapter;
+                    foreach (usersDDB aUser in aList)
+                    {
+                        user_s.Add(aUser.name);
+                    }
+
+                    ArrayAdapter<string> adapterThree = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, user_s);
+                    _listView.Adapter = adapterThree;
+
+                    // IMPORTANT change to try and avoid out of range exception
+                    if (aList.Any())
+                    {
+                        usersDDB searched_user = (Glados.Droid.usersDDB)aList.ElementAt(0);
+                        searedProfile.setID(searched_user.id);
+                        searedProfile.setName(searched_user.name);
+                        searedProfile.setPosition(searched_user.position);
+                        searedProfile.setLocation(searched_user.location);
+                        StartActivity(typeof(SearchProfile));
+                    }
+                    else
+                    {
+                        //Show a toast where someMessage is a string ie, string someMessage = "this is a message";
+                        RunOnUiThread(() => Toast.MakeText(this, "Results still loading, try again later.", ToastLength.Long).Show());
+                    }
+
+                }
+            };
+
+            //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1,
+            //    _items);
+
+            //_listView.Adapter = adapter;
             _actv = FindViewById<AutoCompleteTextView>(Resource.Id.room);
 
             ArrayAdapter<string> adapterTwo = new ArrayAdapter<string>(this,
@@ -150,8 +182,7 @@ namespace Glados.Droid.Views
         {
             string[] strMnuText =
             {
-                "Home", "Favourites", "Profile",
-                "Settings", "Log"
+                "Home", "Profile", "Log"
             };
             int[] strMnuUrl =
             {
@@ -177,33 +208,10 @@ namespace Glados.Droid.Views
                 case "Home":
                     StartActivity(typeof(FirstView));
                     break;
-                case "Favourites":
-                    PopupMenu menu = new PopupMenu(this, FindViewById(Resource.Id.headerbar));
-                    menu.Inflate(Resource.Layout.favourites);
-
-                    List<string> favourites = new List<string> {"Person1", "Person2", "Person3", "Person4", "Person5"};
-
-                    foreach (var f in favourites)
-                    {
-                        menu.Menu.Add(f);
-                    }
-
-                    menu.MenuItemClick += (s1, arg1) =>
-                    {
-                        //Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
-                        profile = new Intent(this, typeof(Profile));
-                        profile.PutExtra("User", arg1.Item.TitleFormatted);
-                        StartActivity(profile);
-                    };
-                    menu.DismissEvent += (s2, arg2) => { };
-                    menu.Show();
-                    break;
                 case "Profile":
                     profile = new Intent(this, typeof(Profile));
                     profile.PutExtra("User", "Self");
                     StartActivity(profile);
-                    break;
-                case "Settings":
                     break;
                 case "Log":
                     StartActivity(typeof(Log));

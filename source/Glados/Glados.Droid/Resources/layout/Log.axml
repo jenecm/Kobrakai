@@ -22,105 +22,73 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-  
-  
-    <TextView
-        android:text="These people wanted to know where you are:"
-        android:id="@+id/txtSubtitle"
-        android:textColor="@android:color/background_dark"
-        android:layout_width="fill_parent"
+
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_below="@id/toolbar">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
+        android:gravity="left"
+        android:id="@+id/linearLayout1">
+    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notifications" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20dp" />
-  <ListView
+        android:id="@+id/linearLayout2">
+      <Button
+          android:text="@string/busy_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/busy" />
+      <Button
+          android:text="@string/send_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/send" />
+      <Button
+          android:text="@string/ignore_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/ignore" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:layout_margin="20dip">
+      <TextView
+          android:text="@string/location"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:id="@+id/lvLogs" />
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gridLayout2"
-        android:columnCount="3"
-        android:layout_gravity="center"
-        android:layout_marginTop="480.0dp">
-        <Button
-            android:text="Busy"
-            android:id="@+id/button2"
-            android:layout_column="0" />
-        <Button
-            android:text="Send"
-            android:id="@+id/button4"
-            android:layout_column="1" />
-        <Button
-            android:text="Ignore"
-            android:id="@+id/button3"
-            android:layout_column="2" />
-    </GridLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/linearLayout2"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:background="#19557D">
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/gridLayout1"
-            android:columnCount="2"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="25dp">
-            <TextView
-                android:layout_row="0"
-                android:text="Location:"
-                android:layout_column="0"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textView1"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:textSize="40dp"
-                android:typeface="normal"
-                android:layout_marginBottom="5dp" />
-            <TextView
-                android:layout_row="0"
-                android:text="S401"
-                android:layout_column="1"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textView1"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:textSize="40dp"
-                android:typeface="normal"
-                android:layout_marginBottom="5dp" />
-        </GridLayout>
+          android:id="@+id/myLocation" />
+      <TextView
+          android:text="@string/notSet"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/setTo" />
+      <AutoCompleteTextView
+          android:hint="@string/your_room"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/room" />
     </LinearLayout>
-  <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            android:layout_margin="20dip">
-    <TextView
-        android:text="@string/location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/myLocation" />
-    <TextView
-        android:text="@string/notSet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/setTo" />
-    <AutoCompleteTextView
-        android:hint="@string/your_room"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/room" />
   </LinearLayout>
   
 </LinearLayout>

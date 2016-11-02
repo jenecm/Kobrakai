@@ -10,8 +10,7 @@ using Amazon.DynamoDBv2.Model;
 
 namespace Glados.Droid
 {
-
-	public static class locationID
+	public static class locationsID
 	{
 		static List<string> locationsList = new List<string>();
 

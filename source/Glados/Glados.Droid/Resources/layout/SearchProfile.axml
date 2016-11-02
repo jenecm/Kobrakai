@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:id="@+id/linearLayout1">
+            <Button
+                android:text="@string/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/linearLayout1"
+            android:layout_margin="10dip">
+            <TextView
+                android:text="@string/searchUser_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchUserPosition"
+                android:layout_margin="10dip" />
+            <TextView
+                android:text="@string/user_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/userPosition"
+                android:layout_margin="10dip" />
+            <TextView
+                android:text="@string/searchUser_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchUserLocation"
+                android:layout_margin="10dip" />
+            <TextView
+                android:text="@string/user_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/userLocation"
+                android:layout_margin="10dip" />
+            <Button
+                android:text="@string/requestLocation_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/requestLocation"
+                android:layout_margin="10dip" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
