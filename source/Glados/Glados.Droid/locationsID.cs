@@ -78,7 +78,7 @@ namespace Glados.Droid
 
         public static async Task addNewLocationToDDB(string id, string beacon, string qr)
         {
-            //Contract.Ensures(Contract.Result<Task>() != null);
+           
             CognitoAWSCredentials credentials = new CognitoAWSCredentials(
                                "us-west-2:d17455cb-c093-403a-a797-d8b01906f7b2", // Identity Pool 
 

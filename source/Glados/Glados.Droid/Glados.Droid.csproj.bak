@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Glados.Droid</RootNamespace>
     <AssemblyName>Glados.Droid</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -143,6 +143,10 @@
       <HintPath>..\packages\MvvmCross.Binding.4.2.2\lib\MonoAndroid\MvvmCross.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
+    <Reference Include="Xamarin.Estimote.Android, Version=1.0.8.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Estimote.Android.0.11.0.1\lib\MonoAndroid43\Xamarin.Estimote.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamoDBService.cs" />
@@ -150,9 +154,12 @@
     <Compile Include="locationsDDB.cs" />
     <Compile Include="LocationSetTo.cs" />
     <Compile Include="locationsID.cs" />
+    <Compile Include="notificationsDDB.cs" />
+    <Compile Include="notificationsList.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="saveID.cs" />
+    <Compile Include="searedProfile.cs" />
     <Compile Include="user.cs" />
     <Compile Include="users.cs" />
     <Compile Include="usersDDB.cs" />
@@ -164,6 +171,7 @@
     <Compile Include="Views\GestureListener.cs" />
     <Compile Include="Views\Log.cs" />
     <Compile Include="Views\Profile.cs" />
+    <Compile Include="Views\SearchProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -184,6 +192,7 @@
     <AndroidResource Include="Resources\layout\favourites.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\SearchProfile.axml" />
     <None Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace Glados.Droid
 	
 	public static class User
 	{
-		private static string _name = "New User";
+		private static string _name = "Glados";
 		private static string _location = "not set";
 		private static string _id;
 		private static string _position = "not set";

@@ -35,6 +35,7 @@ namespace Glados.Droid.Views
         private GestureListener _gestureListener;
 
         private LinearLayout _toolbar;
+        private TextView _toolText;
         private Button _menuButton;
 
         private ListView _menuListView;
@@ -86,19 +87,6 @@ namespace Glados.Droid.Views
             FnInitialization();
             TapEvent();
             FnBindMenu();
-
-            Button profileButton = FindViewById<Button>(Resource.Id.log);
-            profileButton.Click += delegate
-            {
-                StartActivity(typeof(Log));
-            };
-            Button checkinButton = FindViewById<Button>(Resource.Id.checkin);
-            checkinButton.Click += delegate
-            {
-                checkInDialog.SetMessage("Scan");
-                checkInDialog.SetNegativeButton("Done", delegate { });
-                checkInDialog.Show();
-            };
         }
 
         private void TapEvent()
@@ -126,8 +114,8 @@ namespace Glados.Droid.Views
             TextView headertext = (TextView) headerbar.GetChildAt(0);
             headertext.Text = "Home";
             _toolbar = FindViewById<LinearLayout>(Resource.Id.toolbar);
-            var toolText = (TextView) _toolbar.GetChildAt(1);
-            toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
+            _toolText = (TextView) _toolbar.GetChildAt(1);
+            _toolText.Text = StorageHelper.GetValue("name") ?? User.GetName();
             _menuButton = (Button) _toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
 
@@ -344,10 +332,11 @@ namespace Glados.Droid.Views
         {
             base.OnResume();
 
-            //create a variable and assign it to the TextView called aToolBar that shows the users nam
-            TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
-            //set the text of the TextView, called aToolBar, to show the name stored in the static class user
-            toolBarText.Text = User.GetName();
+            _toolText.Text = User.GetName();
+            _toolText.Touch += delegate
+            {
+                StartActivity(typeof(Profile));
+            };
 
             users.setUsersList();
 

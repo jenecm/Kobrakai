@@ -43,21 +43,6 @@
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:id="@+id/linearLayout1">
-            <Button
-                android:text="@string/checkin_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkin" />
-            <Button
-                android:text="@string/log_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/log" />
-            <Button
-                android:text="@string/map_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/map" />
         </LinearLayout>
         <ListView
             android:layout_width="match_parent"

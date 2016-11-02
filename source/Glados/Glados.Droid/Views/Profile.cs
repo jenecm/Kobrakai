@@ -391,17 +391,17 @@ namespace Glados.Droid
         {
             base.OnResume();
 
-            //create a variable and assign it to the TextView called aToolBar that shows the users nam
-            TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
-            //set the text of the TextView, called aToolBar, to show the name stored in the static class user
-            toolBarText.Text = User.GetName();
+            _toolText.Text = User.GetName();
+            _toolText.Touch += delegate
+            {
+                StartActivity(typeof(Profile));
+            };
 
-            //create a variable and assign it to the TextView called setTo that shows the room as set by the user
             TextView tv = FindViewById<TextView>(Resource.Id.setTo);
-            //set the text of the TextView, called setTo, to show the location stored in the static class user
             tv.Text = User.GetLocation();
 
             users.setUsersList();
+
             locationsID.getListFromDDB();
 
             notificationsList.setNotificationsList();

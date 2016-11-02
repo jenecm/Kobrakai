@@ -43,9 +43,13 @@ namespace Glados.Droid
             bool containsItem = userList.Any(usersDDB => usersDDB.id == user.id);
             if (containsItem)
             {
-                return;
+                updateUser(user);
             }
-            userList.Add(user);
+            else
+            {
+                userList.Add(user);
+            }
+
         }
 
         public static usersDDB getUser(string id)
@@ -70,6 +74,7 @@ namespace Glados.Droid
                 theUser.name = "name not retrieved";
             }
             return theUser;
+
         }
 
         public static List<usersDDB> getUsersByName(string name)
@@ -86,8 +91,10 @@ namespace Glados.Droid
                     }
                 }
             }
-            
+
+
             return theUser;
+
         }
 
         public static void deleteUserFromList(usersDDB user)
@@ -139,6 +146,8 @@ namespace Glados.Droid
                 });
 
             }
+
+
         }
     }
 }

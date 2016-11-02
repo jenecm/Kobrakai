@@ -29,6 +29,7 @@ namespace Glados.Droid.Views
         private GestureListener _gestureListener;
 
         private LinearLayout _toolbar;
+	    private TextView _toolText;
         private Button _menuButton;
 
         private ListView _menuListView;
@@ -39,7 +40,6 @@ namespace Glados.Droid.Views
         private AutoCompleteTextView actv;
         private List<string> items;
         private ListView listView;
-        private int Location = 0;
 
         protected override void OnCreate(Bundle bundle)
 		{
@@ -96,9 +96,9 @@ namespace Glados.Droid.Views
 
             _toolbar.LayoutParameters = p;
 
-            var toolText = (TextView)_toolbar.GetChildAt(1);
+            _toolText = (TextView)_toolbar.GetChildAt(1);
 
-            toolText.Text = StorageHelper.GetValue("Name");
+            _toolText.Text = StorageHelper.GetValue("Name");
 
             _menuButton = (Button)_toolbar.GetChildAt(0);
             _menuListView = FindViewById<ListView>(Resource.Id.menuListView);
@@ -343,16 +343,15 @@ namespace Glados.Droid.Views
         {
             base.OnResume();
 
-            //create a variable and assign it to the TextView called aToolBar that shows the users nam
-            TextView toolBarText = FindViewById<TextView>(Resource.Id.aToolBar);
-            //set the text of the TextView, called aToolBar, to show the name stored in the static class user
-            toolBarText.Text = User.GetName();
-            toolBarText.Touch += delegate
+            _toolText.Text = User.GetName();
+
+            _toolText.Touch += delegate
             {
                 StartActivity(typeof(Profile));
             };
 
             users.setUsersList();
+
             locationsID.getListFromDDB();
 
             notificationsList.setNotificationsList();
