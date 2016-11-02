@@ -23,6 +23,7 @@ using MvvmCross.Binding.ExtensionMethods;
 using Glados.Core.Models;
 using System.Linq;
 using EstimoteSdk;
+using EstimoteSdk.EddystoneSdk;
 
 
 namespace Glados.Droid.Views
@@ -353,13 +354,11 @@ namespace Glados.Droid.Views
         private void BeaconManager_Eddystone(object sender, BeaconManager.EddystoneEventArgs e)
         {
             vm.EddyStoneList.Clear();
-            List<EddyStone> eddys = new List<EddyStone>(e.Eddystones.Count);
-            var sortedEddys = eddys.OrderBy(ed => ed.Rssi);
+            var eddys = new List<Eddystone>(e.Eddystones);
+            var sortedEddys = eddys.OrderByDescending(ed => ed.Rssi);
             foreach (var stone in sortedEddys)
             {
-                System.Diagnostics.Debug.WriteLine("BeaconFound");
-                System.Threading.Thread.Sleep(10000);
-
+                RunOnUiThread(() => Toast.MakeText(this, "Beacon Found", ToastLength.Long).Show());
                 vm.EddyStoneList.Add(new Core.Models.EddyStone
                 {
                     CalibratedTxPower = stone.CalibratedTxPower,
@@ -367,11 +366,10 @@ namespace Glados.Droid.Views
                     MacAddress = stone.MacAddress.ToString(),
                     Namespace = stone.Namespace,
                     Rssi = stone.Rssi,
-                    TelemetryLastSeenMillis = System.Convert.ToInt16(stone.TelemetryLastSeenMillis),
+                    TelemetryLastSeenMillis = Convert.ToInt16(stone.TelemetryLastSeenMillis),
                     Url = stone.Url
                 });
             }
-
         }
 
         protected override void OnStop()
